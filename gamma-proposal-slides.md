@@ -31,7 +31,7 @@ Replace the fragile Microsoft patchwork with a **self-hosted automation applianc
 - **One platform** replaces Forms + Power Automate + VBA scripts
 - **PostgreSQL** replaces fragile Excel connections permanently
 - **Automated analytics & reports** — no manual calculations
-- **Docker containerized** — the entire system (app, DB, web server, workflows) ships as portable container images that run on any Docker or Kubernetes host
+- **Docker containerized** — the entire system ships as portable container images that run on any Docker or Kubernetes host
 - **Game Warden pathway** — inherited ATO in weeks, not 6-18 months
 
 ---
@@ -44,7 +44,7 @@ This is **not** a SaaS product. It is a **self-hosted, client-owned appliance**.
 - No vendor dependency, no subscription, no shared tenancy
 - The same container images move from **unclass → Secret → TS** without rebuilding
 - All data stays inside the client's authorization boundary at every classification level
-- Client can operate independently after handoff — no ongoing VV dependency required
+- Client can operate independently after handoff
 
 **Think of it like delivering a turnkey machine, not renting a service.**
 
@@ -153,9 +153,9 @@ Single contract. Milestone reviews at each gate. Full deliverables at every stag
 
 Testing on Secret and TS/SCI networks requires cleared personnel on those networks.
 
-**Primary approach:** Client's cleared personnel execute VV-provided test scripts on SIPRNet/JWICS. VV provides real-time support from unclassified side.
+**Primary:** Client's cleared personnel execute VV-provided test scripts on SIPRNet/JWICS. VV provides real-time support from unclassified side.
 
-**Backup approach:** Client sponsors VV operator's existing TS/SCI clearance for direct access to classified networks. VV tests directly on classified.
+**Backup:** Client sponsors VV operator's existing TS/SCI clearance for direct access. VV tests directly on classified.
 
 **Why this works:**
 - VV delivers comprehensive test scripts, expected results, and validation checklists
@@ -193,9 +193,9 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 ---
 
-## Slide 15: Integrated Contract — Tool Development Pricing
+## Slide 15: Tool Development Pricing
 
-### Tool Development (One-Time, Across All 3 Milestones)
+### One-Time Development (Across All 3 Milestones)
 
 | Milestone | Development Cost |
 |---|---|
@@ -222,40 +222,27 @@ Zero external API calls on classified. All processing stays inside the boundary.
 | Red (starts ~Mo 5) | $10,000 - $19,000/mo | 8 | $80,000 - $152,000 |
 | **Total Year 1 Infra** | | | **$116,560 - $250,240** |
 
-*Infrastructure timing assumes each tier goes live and stays running once deployed.*
-
----
-
-## Slide 17: Where the Money Goes
-
-| Category | Low | High | % of Total |
-|---|---|---|---|
-| Tool development | $73K | $133K | ~30% |
-| Infrastructure (Game Warden + AWS) | $116.5K | $250.2K | ~50% |
-| VV development fee | $35K | $35K | ~10% |
-| VV retainer | $20.5K | $43.2K | ~10% |
-
-- **Black tier:** Almost all development labor. Infrastructure is negligible (~$200/mo).
+- **Black tier:** Infrastructure is negligible (~$200/mo). Almost all spend is development labor.
 - **Yellow tier:** Game Warden platform fee ($3K-$8K/mo) is the dominant cost.
 - **Red tier:** TS region premium ($8K-$15K/mo) drives 80% of Red spend.
 - **Game Warden fees replace a $200K-$500K+ standalone ATO** that takes 6-18 months.
 
 ---
 
-## Slide 18: Total Year 1 Investment Summary
+## Slide 17: Total Year 1 Investment
 
-| Category | Low Estimate | High Estimate |
-|---|---|---|
-| Tool development (all 3 milestones) | $73,000 | $133,000 |
-| Infrastructure (Year 1) | $116,560 | $250,240 |
-| VV development fee | $35,000 | $35,000 |
-| VV retainer (15%, Months 3-12) | $20,450 | $43,160 |
-| **Total Year 1** | **$245,010** | **$461,400** |
-| **Midpoint Estimate** | | **~$353,000** |
+| Category | Low Estimate | High Estimate | % of Total |
+|---|---|---|---|
+| Tool development (all 3 milestones) | $73,000 | $133,000 | ~30% |
+| Infrastructure (Year 1) | $116,560 | $250,240 | ~50% |
+| VV development fee | $35,000 | $35,000 | ~10% |
+| VV retainer (15%, Months 3-12) | $20,450 | $43,160 | ~10% |
+| **Total Year 1** | **$245,010** | **$461,400** | |
+| **Midpoint Estimate** | | **~$353,000** | |
 
 ---
 
-## Slide 19: Payment Schedule
+## Slide 18: Payment Schedule
 
 | Milestone | Trigger | Tool Dev Payment | VV Fee Payment |
 |---|---|---|---|
@@ -267,44 +254,33 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 ---
 
-## Slide 20: VV Retainer — Overview & Pricing
+## Slide 19: VV Retainer — What It Covers
 
 **Months 1-2:** Development phase. VV $35K fee covers all engineering, PM, and training.
 
-**Month 3 onward:** 15% retainer kicks in on ongoing monthly infrastructure costs.
+**Month 3 onward:** 15% retainer on monthly infrastructure costs.
 
 | Monthly Infra (at full deployment) | Low | High |
 |---|---|---|
 | Combined infra (Black + Yellow + Red) | $13,630/mo | $28,770/mo |
 | **VV 15% retainer** | **$2,045/mo** | **$4,316/mo** |
 
-**Year 1 retainer estimate (Months 3-12 = 10 months):** ~$20,450 - $43,160
+**Year 1 retainer estimate (Months 3-12):** ~$20,450 - $43,160
 
 ---
 
-## Slide 21: VV Retainer — Container Lifecycle Management
+## Slide 20: VV Retainer — Scope of Work
 
-Containers are **not patched in place**. They are rebuilt from updated base images, tested, and redeployed.
-
-**What VV does under retainer:**
-
+**Container Lifecycle Management:**
 - Monitor upstream releases (n8n, PostgreSQL, NGINX) for security patches and version updates
-- Rebuild container images with patches applied
-- Test updated images on unclassified environment first
-- Deliver updated images for deployment
-- **Critical CVE patches:** same-week image rebuild
-- **Minor updates:** batched monthly or quarterly
+- Rebuild container images with patches, test on unclassified, deliver updated images
+- Critical CVE patches: same-week rebuild. Minor updates: batched monthly/quarterly.
 - On classified tiers, updated images go through Game Warden pipeline (scan → stage → promote)
 
----
-
-## Slide 22: VV Retainer — Operational Support & Advisory
-
 **Operational Support:**
-- Troubleshooting and incident response (priority SLA)
+- Incident response and troubleshooting (priority SLA)
 - Workflow modifications as operational needs evolve
-- Infrastructure monitoring and alerting review
-- Database maintenance (backups verification, index tuning, storage management)
+- Database maintenance (backups, index tuning, storage management)
 
 **Advisory & Planning:**
 - Enhancement scoping for future features (AI narrative, predictive trending, etc.)
@@ -314,51 +290,24 @@ Containers are **not patched in place**. They are rebuilt from updated base imag
 
 ---
 
-## Slide 23: Government-Ready Product — Overview
+## Slide 21: Government-Ready Product
 
 This is a **commercial B2B engagement** between VV and the defense contractor. The product is built to be **resold to a downstream government entity**.
 
-VV ensures the product meets all technical and compliance requirements so the contractor can sell it to government without rework.
-
-**Key areas VV addresses:**
-- Data rights and IP chain
-- Accessibility (Section 508)
-- Software supply chain security (SBOM)
-- Compliance documentation
-- ATO readiness
-- Transition and exit planning
-
----
-
-## Slide 24: Government-Ready Product — What VV Delivers
-
 | Requirement | How We Address It |
 |---|---|
-| **Data rights / IP** | Contractor receives unlimited rights to all custom code, workflows, configs, and Helm charts. Open-source components retain existing licenses (MIT for n8n, PostgreSQL License, BSD for NGINX). Clean IP chain for gov resale. |
-| **Section 508 accessibility** | Web forms and dashboards built to WCAG 2.1 AA. Required for any IT product sold to the government. |
-| **Software supply chain (SCRM)** | Full Software Bill of Materials (SBOM) delivered per NIST SP 800-218. Documents every component and its origin. |
-| **CMMC / NIST 800-171** | Built-in from day one. Compliance documentation (SSP, POA&M) delivered at Yellow/Red milestones. |
-| **Game Warden / ATO readiness** | Containerized, hardened, Iron Bank-compatible. Inherits ATO through Game Warden. |
-| **Transition / exit plan** | All code, IaC, docs, and training delivered at each milestone. Contractor can operate independently or hand off to government operators. |
+| **Data rights / IP** | Contractor receives unlimited rights to all custom code, workflows, configs, and Helm charts. Open-source components retain existing licenses. Clean IP chain for gov resale. |
+| **Section 508 accessibility** | Web forms and dashboards built to WCAG 2.1 AA. |
+| **Software supply chain (SCRM)** | Full SBOM delivered per NIST SP 800-218 at each milestone. |
+| **CMMC / NIST 800-171** | Built-in from day one. Compliance docs (SSP, POA&M) delivered at Yellow/Red. |
+| **Game Warden / ATO** | Inherits ATO through Game Warden — no standalone certification needed. |
+| **Transition / exit plan** | All code, IaC, docs, and training delivered at each milestone. |
+
+The contractor handles SAM.gov, FAR/DFARS, contract vehicle selection, CDRLs, and government contracting officer relationships for the downstream sale.
 
 ---
 
-## Slide 25: Government-Ready Product — Contractor Responsibilities
-
-The following are the **contractor's responsibility** when selling downstream to government. VV's deliverables are structured to support these requirements.
-
-- **SAM.gov registration** — CAGE code, UEI, NAICS codes
-- **FAR/DFARS clause compliance** in their government contract
-- **Contract vehicle selection** — GSA Schedule, OTA, SBIR, direct award
-- **CDRLs** mapped to VV milestone deliverables
-- **Government contracting officer relationship**
-- **Insurance requirements** — cyber liability, E&O, general liability
-
----
-
-## Slide 26: Cost Reduction Levers
-
-Ways to reduce the total investment:
+## Slide 22: Cost Reduction Levers
 
 - **Multi-tenant Game Warden** — Share K8s cluster with other workloads to cut platform fees
 - **Existing Game Warden contract** — Reduces onboarding cost if contractor already has one
@@ -367,42 +316,26 @@ Ways to reduce the total investment:
 
 ---
 
-## Slide 27: Risk Assessment — High Severity
+## Slide 23: Risk Assessment
 
-| # | Risk | Likelihood | Impact | Severity | Mitigation |
-|---|---|---|---|---|---|
-| R1 | Game Warden onboarding delays | Medium | High | **High** | Built to CMMC/NIST from day one; pre-approved container patterns. Parallel prep during Black so Yellow isn't blocked. |
+| # | Risk | Severity | Mitigation |
+|---|---|---|---|
+| R1 | Game Warden onboarding delays | **High** | Begin coordination during Black. Pre-approved container patterns. Parallel prep so Yellow isn't blocked. |
+| R2 | Classified testing coordination | **Medium** | Client personnel test with VV scripts + unclass support. Backup: client sponsors VV operator access. |
+| R3 | n8n Iron Bank submission rejected/delayed | **Medium** | Prepare hardened image during Black. Fallback: equivalent STIG hardening under org waiver. |
+| R4 | CVE count in n8n dependency tree | **Medium** | Budget remediation at upper range ($6K). Pin stable versions. Monitor CVE feeds pre-submission. |
+| R5 | Power BI unavailable on classified | **Medium** | Metabase (open-source) built as drop-in fallback during Black MVP. |
+| R6 | User adoption resistance | **Medium** | Familiar form-based UX. Training included. March event provides early feedback loop. |
+| R7 | Single-vendor dependency on VV | **Medium** | All code, docs, and IaC delivered at each milestone. Client can self-operate after any gate. |
+| R8 | Scope creep across milestones | **Medium** | Milestone gates with defined acceptance criteria. Change requests via retainer after Month 3. |
+| R9 | AWS Diode cross-domain issues (Red) | **Medium** | Engage AWS SA early. Validate transfer in staging. Budget upper range ($10K). |
+| R10 | Compliance assessment exceeds budget | **Low** | Clarify internal vs. external assessment at contract award. $5K-$15K range absorbs variance. |
 
-Game Warden onboarding is the single highest-impact risk. Mitigation: begin Iron Bank image prep and compliance documentation during MS1 so MS2 isn't waiting on approvals.
-
----
-
-## Slide 28: Risk Assessment — Medium Severity
-
-| # | Risk | Likelihood | Impact | Severity | Mitigation |
-|---|---|---|---|---|---|
-| R2 | Classified testing coordination | Medium | Medium | **Medium** | Client personnel test on classified using VV test scripts + unclass support. Backup: client sponsors VV operator access. |
-| R3 | n8n Iron Bank submission rejected/delayed | Medium | Medium | **Medium** | Prepare hardened image during Black. If rejected, deploy with equivalent STIG hardening under org waiver. |
-| R4 | CVE count in n8n dependency tree exceeds budget | Medium | Medium | **Medium** | Scope remediation budget at upper range ($6K). Pin stable dependency versions. Monitor CVE feeds pre-submission. |
-| R5 | Power BI unavailable on classified network | Low | Medium | **Medium** | Metabase (open-source) included as drop-in fallback. Both options built during Black MVP. |
-| R6 | User adoption resistance | Low | Medium | **Medium** | Familiar form-based UX. Existing Power BI dashboards preserved where possible. Training included in MS1. |
-| R7 | Single-vendor dependency on VV | Low | Medium | **Medium** | All code, docs, and IaC delivered at each milestone. Client can operate independently after handoff. |
-| R8 | Scope creep across milestones | Medium | Medium | **Medium** | Milestone gates with defined deliverables and acceptance criteria. Change requests via retainer after Month 3. |
-| R9 | AWS Diode cross-domain transfer issues (Red) | Low | High | **Medium** | Engage AWS SA early. Validate image transfer in staging before production. Budget upper range ($10K). |
+**Overall posture:** Manageable. Highest risk (R1) is mitigated by parallel preparation. No showstoppers.
 
 ---
 
-## Slide 29: Risk Assessment — Low Severity
-
-| # | Risk | Likelihood | Impact | Severity | Mitigation |
-|---|---|---|---|---|---|
-| R10 | External compliance assessment exceeds budget | Medium | Low | **Low** | Clarify internal vs. external assessment at contract award. Scope compliance support hours accordingly ($5K-$15K range). |
-
-**Overall risk posture:** Manageable. The highest risks (R1, R9) are infrastructure/process risks mitigated by early engagement and parallel preparation. No showstoppers identified.
-
----
-
-## Slide 30: Next Steps
+## Slide 24: Next Steps
 
 1. **Review & Approve** this integrated milestone proposal
 2. **Contract Execution** — Sign single 6-month engagement with milestone payments
