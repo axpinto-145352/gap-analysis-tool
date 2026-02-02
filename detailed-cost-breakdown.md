@@ -33,7 +33,7 @@ This is your full 6-month engagement fee. It covers:
 - Operator training and system documentation
 - Project management across all 3 milestones
 
-**When it's paid:** In full at contract award (included in the 20% upfront payment). This de-risks VV — you're paid for your expertise before tool development costs start flowing.
+**When it's paid:** Spread across all 4 milestones — 30% at contract award ($10,500), 25% at Black MVP acceptance ($8,750), 20% at Yellow operational ($7,000), 25% at Red operational ($8,750). This keeps VV revenue flowing with each deliverable.
 
 **How to position:** "This is our engineering and project management fee for the full 6-month build. It covers architecture through operational acceptance at every classification level."
 
@@ -168,34 +168,37 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 | Item | Low | High |
 |---|---|---|
 | 20% of tool development | $14,600 | $26,600 |
-| VV development fee (full) | $35,000 | $35,000 |
-| **Total upfront** | **$49,600** | **$61,600** |
+| VV fee — 30% ($10,500) | $10,500 | $10,500 |
+| **Total upfront** | **$25,100** | **$37,100** |
 
 ### Month 2 (MS1: Black MVP Accepted)
 
 | Item | Low | High |
 |---|---|---|
 | 30% of tool development | $21,900 | $39,900 |
+| VV fee — 25% ($8,750) | $8,750 | $8,750 |
 | Black infra (2 months accrued) | $260 | $540 |
-| **Total at MS1** | **~$22,160** | **~$40,440** |
+| **Total at MS1** | **~$30,910** | **~$49,190** |
 
 ### Month 4 (MS2: Yellow Operational)
 
 | Item | Low | High |
 |---|---|---|
 | 30% of tool development | $21,900 | $39,900 |
+| VV fee — 20% ($7,000) | $7,000 | $7,000 |
 | Yellow infra (2 months accrued) | $7,000 | $19,000 |
 | VV retainer (Months 3-4) | $1,090 | $2,932 |
-| **Total at MS2** | **~$29,990** | **~$61,832** |
+| **Total at MS2** | **~$36,990** | **~$68,832** |
 
 ### Month 6 (MS3: Red Operational)
 
 | Item | Low | High |
 |---|---|---|
 | 20% of tool development | $14,600 | $26,600 |
+| VV fee — 25% ($8,750) | $8,750 | $8,750 |
 | Red infra (2 months accrued) | $20,000 | $38,000 |
 | VV retainer (Months 5-6) | $4,090 | $8,632 |
-| **Total at MS3** | **~$38,690** | **~$73,232** |
+| **Total at MS3** | **~$47,440** | **~$81,982** |
 
 ### Months 7-12 (Post-Engagement, Ongoing)
 
@@ -223,10 +226,10 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 
 ### Conversation 3: Integrated Pricing (Budget Authority)
 - Present the single-contract milestone structure
-- Lead with the $35K VV fee — that's their cost to get started (plus 20% of tool dev)
-- Upfront outlay is ~$50K-$62K. That's the "first check."
+- Lead with the upfront: 30% of VV fee ($10,500) + 20% of tool dev — manageable first check
+- Upfront outlay is ~$25K-$37K. That's the "first check."
 - Infrastructure is the big number but it's **monthly and scales with deployment**
-- **Key line:** "The upfront is ~$50K-$62K. After that, costs are milestone-gated — you only pay for tiers you deploy."
+- **Key line:** "The upfront is ~$25K-$37K. After that, costs are milestone-gated — you only pay for tiers you deploy."
 
 ### Conversation 4: Game Warden Deep Dive (If Classified Is the Goal)
 - ATO inheritance: weeks vs. 6-18 months
@@ -240,7 +243,7 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 | Objection | Response |
 |---|---|
 | "That's a lot of money." | "The infrastructure costs are Game Warden + AWS — that's the price of classified deployment. The alternative is $200K-$500K for standalone ATO. Our VV fee is $35K for a 6-month build across 3 classification levels." |
-| "Can we just do Black?" | "Yes. Black MVP is ~$50K-$62K upfront. You get a working system, prove it out at the March event, and decide from there. The contract has milestone gates for exactly this." |
+| "Can we just do Black?" | "Yes. Through Black MVP acceptance you're looking at ~$56K-$86K total (upfront + MS1). You get a working system, prove it out at the March event, and decide from there. The contract has milestone gates for exactly this." |
 | "Why not fix Power Automate?" | "Power Automate can't deploy to classified networks. It has no Game Warden pathway. And you'd still have 10+ siloed flows and broken Excel connections." |
 | "What's the retainer for?" | "Once we build it, you need someone who knows the system for maintenance, troubleshooting, and future enhancements. The 15% retainer starting Month 3 ensures priority support without re-onboarding." |
 | "Can the retainer start later?" | "It starts Month 3 — when Yellow infra is live and there's actual infrastructure to support. During Months 1-2, the $35K dev fee covers everything." |

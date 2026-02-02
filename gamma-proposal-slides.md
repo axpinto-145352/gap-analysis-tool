@@ -228,13 +228,13 @@ The retainer covers: ongoing advisory, maintenance coordination, escalation supp
 
 ### Payment Milestones
 
-| Milestone | Trigger | Payment |
-|---|---|---|
-| Contract Award | Signed | 20% of tool dev + full VV $35K fee |
-| MS1: Black MVP Accepted | March event UAT | 30% of tool dev |
-| MS2: Yellow Operational | SIPRNet deployment | 30% of tool dev |
-| MS3: Red Operational | JWICS acceptance | 20% of tool dev |
-| VV Retainer | Monthly, starting Month 3 | 15% of that month's infra costs |
+| Milestone | Trigger | Tool Dev Payment | VV Fee Payment |
+|---|---|---|---|
+| Contract Award | Signed | 20% of tool dev | 30% of $35K = **$10,500** |
+| MS1: Black MVP Accepted | March event UAT | 30% of tool dev | 25% of $35K = **$8,750** |
+| MS2: Yellow Operational | SIPRNet deployment | 30% of tool dev | 20% of $35K = **$7,000** |
+| MS3: Red Operational | JWICS acceptance | 20% of tool dev | 25% of $35K = **$8,750** |
+| VV Retainer | Monthly, starting Month 3 | — | 15% of that month's infra costs |
 
 ---
 
