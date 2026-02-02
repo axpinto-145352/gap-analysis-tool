@@ -1,5 +1,5 @@
 # Gap Analysis Automation Platform — Integrated Milestone Proposal
-### Veteran Vectors | Executive Briefing (20 Slides)
+### Veteran Vectors | Executive Briefing
 
 ---
 
@@ -26,17 +26,31 @@ Secure, Scalable Survey-to-Insight Pipeline for Defense & Intelligence Operation
 
 ## Slide 3: The Solution
 
-Replace the fragile Microsoft patchwork with a **self-hosted n8n automation platform** in Docker:
+Replace the fragile Microsoft patchwork with a **self-hosted automation appliance** packaged in Docker containers:
 
 - **One platform** replaces Forms + Power Automate + VBA scripts
 - **PostgreSQL** replaces fragile Excel connections permanently
 - **Automated analytics & reports** — no manual calculations
-- **Docker containerized** — deploys at any classification level
+- **Docker containerized** — the entire system ships as portable container images that run on any Docker or Kubernetes host
 - **Game Warden pathway** — inherited ATO in weeks, not 6-18 months
 
 ---
 
-## Slide 4: Before → After
+## Slide 4: Delivery Model — Self-Hosted Appliance, Not SaaS
+
+This is **not** a SaaS product. It is a **self-hosted, client-owned appliance**.
+
+- VV builds and packages it; the client owns and operates it on their infrastructure
+- No vendor dependency, no subscription, no shared tenancy
+- The same container images move from **unclass → Secret → TS** without rebuilding
+- All data stays inside the client's authorization boundary at every classification level
+- Client can operate independently after handoff
+
+**Think of it like delivering a turnkey machine, not renting a service.**
+
+---
+
+## Slide 5: Before → After
 
 | | Current | Proposed |
 |---|---|---|
@@ -49,7 +63,7 @@ Replace the fragile Microsoft patchwork with a **self-hosted n8n automation plat
 
 ---
 
-## Slide 5: How It Works — 5 Core Workflows
+## Slide 6: How It Works — 5 Core Workflows
 
 1. **Survey Distribution** — Roster-driven sends + auto-reminders
 2. **Form Submission Handler** — Webhook intake, validation, DB storage
@@ -61,7 +75,7 @@ All 5 workflows built, tested, and handed off as a complete system.
 
 ---
 
-## Slide 6: Technology Stack
+## Slide 7: Technology Stack
 
 | Component | Tool | Why |
 |---|---|---|
@@ -76,7 +90,7 @@ All 5 workflows built, tested, and handed off as a complete system.
 
 ---
 
-## Slide 7: Engagement Structure — One Contract, Three Milestones
+## Slide 8: Engagement Structure — One Contract, Three Milestones
 
 **6-Month Integrated Engagement** with milestone gates at each classification tier:
 
@@ -90,7 +104,7 @@ Single contract. Milestone reviews at each gate. Full deliverables at every stag
 
 ---
 
-## Slide 8: Milestone 1 — Black MVP (Months 1-2)
+## Slide 9: Milestone 1 — Black MVP (Months 1-2)
 
 - n8n + PostgreSQL + NGINX deployed in Docker
 - All 5 workflows operational end-to-end
@@ -105,7 +119,7 @@ Single contract. Milestone reviews at each gate. Full deliverables at every stag
 
 ---
 
-## Slide 9: Milestone 2 — Yellow / Secret (Months 2-4)
+## Slide 10: Milestone 2 — Yellow / Secret (Months 2-4)
 
 - Kubernetes/Helm conversion for Game Warden pipeline
 - All external API dependencies removed (PostgreSQL-only)
@@ -120,7 +134,7 @@ Single contract. Milestone reviews at each gate. Full deliverables at every stag
 
 ---
 
-## Slide 10: Milestone 3 — Red / TS/SCI (Months 4-6)
+## Slide 11: Milestone 3 — Red / TS/SCI (Months 4-6)
 
 - Promotion to AWS Top Secret Region via AWS Diode
 - Additional SCI compartment access controls
@@ -135,7 +149,23 @@ Single contract. Milestone reviews at each gate. Full deliverables at every stag
 
 ---
 
-## Slide 11: Game Warden — Why It Matters
+## Slide 12: Classified Testing Model
+
+Testing on Secret and TS/SCI networks requires cleared personnel on those networks.
+
+**Primary:** Client's cleared personnel execute VV-provided test scripts on SIPRNet/JWICS. VV provides real-time support from unclassified side.
+
+**Backup:** Client sponsors VV operator's existing TS/SCI clearance for direct access. VV tests directly on classified.
+
+**Why this works:**
+- VV delivers comprehensive test scripts, expected results, and validation checklists
+- Real-time coordination via unclassified channels during testing windows
+- Eliminates dependency on VV clearance sponsorship (primary model)
+- Client retains full control of classified environment at all times
+
+---
+
+## Slide 13: Game Warden — Why It Matters
 
 **Problem:** Traditional ATO takes 6-18 months and costs $200K-$500K+.
 
@@ -150,7 +180,7 @@ We provide hardened container images + Helm charts. Game Warden handles the rest
 
 ---
 
-## Slide 12: Security & Compliance
+## Slide 14: Security & Compliance
 
 | Framework | Coverage |
 |---|---|
@@ -163,9 +193,9 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 ---
 
-## Slide 13: Integrated Contract — Total Pricing
+## Slide 15: Tool Development Pricing
 
-### Tool Development (One-Time, Across All 3 Milestones)
+### One-Time Development (Across All 3 Milestones)
 
 | Milestone | Development Cost |
 |---|---|
@@ -179,11 +209,11 @@ Zero external API calls on classified. All processing stays inside the boundary.
 | Item | Cost |
 |---|---|
 | **VV Development & Engineering Fee** | **$35,000** (flat — full 6-month engagement) |
-| **VV Retainer (15%)** | **15% of monthly contract costs, beginning Month 3** |
+| **VV Retainer (15%)** | **15% of monthly infrastructure costs, beginning Month 3** |
 
 ---
 
-## Slide 14: Infrastructure Costs by Milestone
+## Slide 16: Infrastructure Costs by Milestone
 
 | Milestone | Monthly Infra | Months Active (Yr 1) | Annual Infra |
 |---|---|---|---|
@@ -192,41 +222,27 @@ Zero external API calls on classified. All processing stays inside the boundary.
 | Red (starts ~Mo 5) | $10,000 - $19,000/mo | 8 | $80,000 - $152,000 |
 | **Total Year 1 Infra** | | | **$116,560 - $250,240** |
 
-*Infrastructure timing assumes each tier goes live and stays running once deployed.*
+- **Black tier:** Infrastructure is negligible (~$200/mo). Almost all spend is development labor.
+- **Yellow tier:** Game Warden platform fee ($3K-$8K/mo) is the dominant cost.
+- **Red tier:** TS region premium ($8K-$15K/mo) drives 80% of Red spend.
+- **Game Warden fees replace a $200K-$500K+ standalone ATO** that takes 6-18 months.
 
 ---
 
-## Slide 15: Veteran Vectors Retainer — How It Works
+## Slide 17: Total Year 1 Investment
 
-**Months 1-2:** Development phase. VV $35K fee covers all engineering, PM, and training.
-
-**Month 3 onward:** 15% retainer kicks in on ongoing monthly costs (infrastructure + any active maintenance).
-
-| Monthly Infra (at full deployment) | Low | High |
-|---|---|---|
-| Combined infra (Black + Yellow + Red) | $13,630/mo | $28,770/mo |
-| **VV 15% retainer** | **$2,045/mo** | **$4,316/mo** |
-
-**Year 1 retainer estimate (Months 3-12 = 10 months):**
-- Low: ~$20,450
-- High: ~$43,160
-
-The retainer covers: ongoing advisory, maintenance coordination, escalation support, enhancement scoping, and priority support SLA.
+| Category | Low Estimate | High Estimate | % of Total |
+|---|---|---|---|
+| Tool development (all 3 milestones) | $73,000 | $133,000 | ~30% |
+| Infrastructure (Year 1) | $116,560 | $250,240 | ~50% |
+| VV development fee | $35,000 | $35,000 | ~10% |
+| VV retainer (15%, Months 3-12) | $20,450 | $43,160 | ~10% |
+| **Total Year 1** | **$245,010** | **$461,400** | |
+| **Midpoint Estimate** | | **~$353,000** | |
 
 ---
 
-## Slide 16: Total Year 1 Investment Summary
-
-| Category | Low Estimate | High Estimate |
-|---|---|---|
-| Tool development (all 3 milestones) | $73,000 | $133,000 |
-| Infrastructure (Year 1) | $116,560 | $250,240 |
-| VV development fee | $35,000 | $35,000 |
-| VV retainer (15%, Months 3-12) | $20,450 | $43,160 |
-| **Total Year 1** | **$245,010** | **$461,400** |
-| **Midpoint Estimate** | | **~$353,000** |
-
-### Payment Milestones
+## Slide 18: Payment Schedule
 
 | Milestone | Trigger | Tool Dev Payment | VV Fee Payment |
 |---|---|---|---|
@@ -238,46 +254,88 @@ The retainer covers: ongoing advisory, maintenance coordination, escalation supp
 
 ---
 
-## Slide 17: Where the Money Goes
+## Slide 19: VV Retainer — What It Covers
 
-| Category | Low | High | % of Total |
-|---|---|---|---|
-| Tool development | $73K | $133K | ~30% |
-| Infrastructure (Game Warden + AWS) | $116.5K | $250.2K | ~50% |
-| VV development fee | $35K | $35K | ~10% |
-| VV retainer | $20.5K | $43.2K | ~10% |
+**Months 1-2:** Development phase. VV $35K fee covers all engineering, PM, and training.
 
-- **Black tier:** Almost all development labor. Infrastructure is negligible (~$200/mo).
-- **Yellow tier:** Game Warden platform fee ($3K-$8K/mo) is the dominant cost.
-- **Red tier:** TS region premium ($8K-$15K/mo) drives 80% of Red spend.
-- **Game Warden fees replace a $200K-$500K+ standalone ATO** that takes 6-18 months.
+**Month 3 onward:** 15% retainer on monthly infrastructure costs.
 
----
+| Monthly Infra (at full deployment) | Low | High |
+|---|---|---|
+| Combined infra (Black + Yellow + Red) | $13,630/mo | $28,770/mo |
+| **VV 15% retainer** | **$2,045/mo** | **$4,316/mo** |
 
-## Slide 18: Cost Reduction Levers
-
-- **Multi-tenant Game Warden** — Share a K8s cluster; cuts platform fees significantly
-- **Existing Game Warden contract** — Onboarding costs drop; fees may already be budgeted
-- **Iron Bank images** — PostgreSQL & NGINX already in Iron Bank; only n8n needs submission
-- **Phased infra spin-up** — Don't start Yellow/Red infra until that milestone is reached
-- **Midpoint targeting** — Scope tool development to midpoint estimates (~$103K) to control costs
+**Year 1 retainer estimate (Months 3-12):** ~$20,450 - $43,160
 
 ---
 
-## Slide 19: Risk Mitigation
+## Slide 20: VV Retainer — Scope of Work
 
-| Risk | Mitigation |
+**Container Lifecycle Management:**
+- Monitor upstream releases (n8n, PostgreSQL, NGINX) for security patches and version updates
+- Rebuild container images with patches, test on unclassified, deliver updated images
+- Critical CVE patches: same-week rebuild. Minor updates: batched monthly/quarterly.
+- On classified tiers, updated images go through Game Warden pipeline (scan → stage → promote)
+
+**Operational Support:**
+- Incident response and troubleshooting (priority SLA)
+- Workflow modifications as operational needs evolve
+- Database maintenance (backups, index tuning, storage management)
+
+**Advisory & Planning:**
+- Enhancement scoping for future features (AI narrative, predictive trending, etc.)
+- Quarterly architecture reviews
+- Compliance posture updates as CMMC/NIST requirements evolve
+- Scaling support for larger user populations (e.g., May event ~150 users)
+
+---
+
+## Slide 21: Government-Ready Product
+
+This is a **commercial B2B engagement** between VV and the defense contractor. The product is built to be **resold to a downstream government entity**.
+
+| Requirement | How We Address It |
 |---|---|
-| Game Warden delays | Built to CMMC/NIST from day one; pre-approved container patterns |
-| Power BI unavailable on target net | Metabase (open-source) fallback included |
-| AI features unavailable on high side | Template-based reports work without AI; AI is a future add-on |
-| User adoption resistance | Familiar form-based UX; existing Power BI preserved where possible |
-| Network restrictions | Fully self-contained; zero external API calls |
-| Scope creep | Milestone gates with defined deliverables; proceed or conclude at each |
+| **Data rights / IP** | Contractor receives unlimited rights to all custom code, workflows, configs, and Helm charts. Open-source components retain existing licenses. Clean IP chain for gov resale. |
+| **Section 508 accessibility** | Web forms and dashboards built to WCAG 2.1 AA. |
+| **Software supply chain (SCRM)** | Full SBOM delivered per NIST SP 800-218 at each milestone. |
+| **CMMC / NIST 800-171** | Built-in from day one. Compliance docs (SSP, POA&M) delivered at Yellow/Red. |
+| **Game Warden / ATO** | Inherits ATO through Game Warden — no standalone certification needed. |
+| **Transition / exit plan** | All code, IaC, docs, and training delivered at each milestone. |
+
+The contractor handles SAM.gov, FAR/DFARS, contract vehicle selection, CDRLs, and government contracting officer relationships for the downstream sale.
 
 ---
 
-## Slide 20: Next Steps
+## Slide 22: Cost Reduction Levers
+
+- **Multi-tenant Game Warden** — Share K8s cluster with other workloads to cut platform fees
+- **Existing Game Warden contract** — Reduces onboarding cost if contractor already has one
+- **Bundle discount** — Single contract across all tiers saves 10-15% on development
+- **Phased infra spin-up** — Don't start Yellow/Red infra until that milestone is reached (already reflected in Year 1 estimates)
+
+---
+
+## Slide 23: Risk Assessment
+
+| # | Risk | Severity | Mitigation |
+|---|---|---|---|
+| R1 | Game Warden onboarding delays | **High** | Begin coordination during Black. Pre-approved container patterns. Parallel prep so Yellow isn't blocked. |
+| R2 | Classified testing coordination | **Medium** | Client personnel test with VV scripts + unclass support. Backup: client sponsors VV operator access. |
+| R3 | n8n Iron Bank submission rejected/delayed | **Medium** | Prepare hardened image during Black. Fallback: equivalent STIG hardening under org waiver. |
+| R4 | CVE count in n8n dependency tree | **Medium** | Budget remediation at upper range ($6K). Pin stable versions. Monitor CVE feeds pre-submission. |
+| R5 | Power BI unavailable on classified | **Medium** | Metabase (open-source) built as drop-in fallback during Black MVP. |
+| R6 | User adoption resistance | **Medium** | Familiar form-based UX. Training included. March event provides early feedback loop. |
+| R7 | Single-vendor dependency on VV | **Medium** | All code, docs, and IaC delivered at each milestone. Client can self-operate after any gate. |
+| R8 | Scope creep across milestones | **Medium** | Milestone gates with defined acceptance criteria. Change requests via retainer after Month 3. |
+| R9 | AWS Diode cross-domain issues (Red) | **Medium** | Engage AWS SA early. Validate transfer in staging. Budget upper range ($10K). |
+| R10 | Compliance assessment exceeds budget | **Low** | Clarify internal vs. external assessment at contract award. $5K-$15K range absorbs variance. |
+
+**Overall posture:** Manageable. Highest risk (R1) is mitigated by parallel preparation. No showstoppers.
+
+---
+
+## Slide 24: Next Steps
 
 1. **Review & Approve** this integrated milestone proposal
 2. **Contract Execution** — Sign single 6-month engagement with milestone payments
