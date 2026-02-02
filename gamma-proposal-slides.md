@@ -1,5 +1,5 @@
-# Gap Analysis Automation Platform — Executive Proposal
-### Veteran Vectors | Condensed Briefing (20 Slides)
+# Gap Analysis Automation Platform — Integrated Milestone Proposal
+### Veteran Vectors | Executive Briefing (20 Slides)
 
 ---
 
@@ -8,7 +8,7 @@
 **Gap Analysis Automation Platform**
 Secure, Scalable Survey-to-Insight Pipeline for Defense & Intelligence Operations
 
-*Prepared by Veteran Vectors*
+*Veteran Vectors — 6-Month Milestone-Based Engagement*
 
 ---
 
@@ -32,7 +32,7 @@ Replace the fragile Microsoft patchwork with a **self-hosted n8n automation plat
 - **PostgreSQL** replaces fragile Excel connections permanently
 - **Automated analytics & reports** — no manual calculations
 - **Docker containerized** — deploys at any classification level
-- **Game Warden pathway** — inherited ATO, not 6-18 month certification
+- **Game Warden pathway** — inherited ATO in weeks, not 6-18 months
 
 ---
 
@@ -43,7 +43,7 @@ Replace the fragile Microsoft patchwork with a **self-hosted n8n automation plat
 | Automation | 10+ Power Automate flows | 5 unified n8n workflows |
 | Data Store | Excel (fragile) | PostgreSQL (reliable) |
 | Reports | Manual | Auto-generated on demand |
-| Classified Path | None | Game Warden (IL2→TS/SCI) |
+| Classified Path | None | Game Warden (IL2 → TS/SCI) |
 | Operator Dependency | 1 person | Any trained operator |
 | Licensing | Per-user Microsoft fees | Open-source, $0 licensing |
 
@@ -57,7 +57,7 @@ Replace the fragile Microsoft patchwork with a **self-hosted n8n automation plat
 4. **Report Generator** — Templated consultancy report with top-10 gaps, recommendations
 5. **Lifecycle Manager** — Auto open/close surveys, analyst notifications
 
-All 5 workflows are built, tested, and handed off as a complete system.
+All 5 workflows built, tested, and handed off as a complete system.
 
 ---
 
@@ -76,53 +76,62 @@ All 5 workflows are built, tested, and handed off as a complete system.
 
 ---
 
-## Slide 7: Three Deployment Tiers
+## Slide 7: Engagement Structure — One Contract, Three Milestones
 
-| Tier | Classification | Environment | Timeline |
+**6-Month Integrated Engagement** with milestone gates at each classification tier:
+
+| Milestone | Tier | Timeline | Gate |
 |---|---|---|---|
-| **Black** (MVP) | Unclassified / IL2-IL4 | AWS GovCloud or on-prem Docker | Weeks 1-6 |
-| **Yellow** | Secret / IL5-IL6 | Game Warden (AWS Secret Region) | Weeks 7-12 |
-| **Red** | TS/SCI | Game Warden (AWS TS Region) | Weeks 13-20 |
+| **MS1: Black MVP** | Unclassified (IL2-IL4) | Months 1-2 | March event — live test with ~15 users |
+| **MS2: Yellow Ops** | Secret (IL5-IL6) | Months 2-4 | Operational on SIPRNet via Game Warden |
+| **MS3: Red Ops** | TS/SCI | Months 4-6 | Full deployment on JWICS |
 
-Each tier has a **milestone gate** — proceed or conclude with full deliverables.
+Single contract. Milestone reviews at each gate. Full deliverables at every stage.
 
 ---
 
-## Slide 8: Tier 1 — Black MVP (Weeks 1-6)
+## Slide 8: Milestone 1 — Black MVP (Months 1-2)
 
-- n8n + PostgreSQL + NGINX in Docker
-- All 5 workflows operational
+- n8n + PostgreSQL + NGINX deployed in Docker
+- All 5 workflows operational end-to-end
 - Google Sheets/Excel Online integration for familiar interface
-- Optional Power BI connector
-- **Target:** Functional prototype for March event (~15 users)
+- Optional Power BI connector for existing dashboards
+- Integration testing + UAT at March event (~15 users)
 
-**Development:** $20K - $31K
+**Deliverables:** Working prototype, operator documentation, training
+
+**Tool Development Cost:** $20K - $31K
 **Monthly Infra:** ~$130 - $270/mo
 
 ---
 
-## Slide 9: Tier 2 — Yellow / Secret (Weeks 7-12)
+## Slide 9: Milestone 2 — Yellow / Secret (Months 2-4)
 
-- Kubernetes/Helm deployment through Game Warden pipeline
-- PostgreSQL-only (no external API dependencies)
-- Iron Bank base images; STIG hardening
-- Inherited ATO via Game Warden
-- **Target:** Operational on classified (SIPRNet)
+- Kubernetes/Helm conversion for Game Warden pipeline
+- All external API dependencies removed (PostgreSQL-only)
+- Iron Bank image submission for n8n; STIG hardening
+- Classified email relay integration
+- SIPRNet end-to-end testing + compliance documentation (SSP, POA&M)
 
-**Development:** $23K - $40K
-**Monthly Infra:** ~$3,500 - $9,500/mo (Game Warden platform fee is the driver)
+**Deliverables:** Operational classified deployment, inherited ATO, compliance docs
+
+**Tool Development Cost:** $23K - $40K
+**Monthly Infra:** ~$3,500 - $9,500/mo (Game Warden platform fee)
 
 ---
 
-## Slide 10: Tier 3 — Red / TS/SCI (Weeks 13-20)
+## Slide 10: Milestone 3 — Red / TS/SCI (Months 4-6)
 
-- Promotion to TS region via AWS Diode cross-domain solution
-- Additional SCI access controls
-- Fully air-gapped; all dependencies bundled
-- **Target:** Full operational deployment at highest classification
+- Promotion to AWS Top Secret Region via AWS Diode
+- Additional SCI compartment access controls
+- Enhanced audit logging and monitoring
+- Fully air-gapped — all dependencies bundled
+- JWICS operational acceptance testing
 
-**Development:** $30K - $62K
-**Monthly Infra:** ~$10K - $19K/mo (TS region premium pricing)
+**Deliverables:** Full TS/SCI deployment, compliance documentation, operational acceptance
+
+**Tool Development Cost:** $30K - $62K
+**Monthly Infra:** ~$10K - $19K/mo (TS region premium)
 
 ---
 
@@ -141,88 +150,121 @@ We provide hardened container images + Helm charts. Game Warden handles the rest
 
 ---
 
-## Slide 12: Security & Compliance Summary
+## Slide 12: Security & Compliance
 
 | Framework | Coverage |
 |---|---|
 | CMMC Level 2 | Access control, audit logging, encryption, input sanitization |
 | NIST 800-171 | CUI handling, separation of duties, automated audit trail |
-| FedRAMP | Containerized arch, no 3rd-party SaaS, all processing within auth boundary |
+| FedRAMP | Containerized arch, no 3rd-party SaaS, processing within auth boundary |
 | DISA STIGs | Applied automatically via Game Warden pipeline |
 
 Zero external API calls on classified. All processing stays inside the boundary.
 
 ---
 
-## Slide 13: Implementation Timeline
+## Slide 13: Integrated Contract — Total Pricing
 
-| Weeks | Phase | Key Milestone |
-|---|---|---|
-| 1-2 | Setup & Core Build | n8n deployed, survey distribution + form handler live |
-| 3-4 | Analytics & Reports | Likert/NPS engine, auto-report generator |
-| 5-6 | Testing & UAT | End-to-end test, March event with ~15 users |
-| 7-10 | Yellow Deployment | Game Warden onboarding, K8s migration, SIPRNet testing |
-| 11-12 | Yellow Operational | Compliance docs, operational acceptance |
-| 13-18 | Red Deployment | TS provisioning, AWS Diode, JWICS integration |
-| 19-20 | Red Operational | Final compliance review, operational acceptance |
+### Tool Development (One-Time, Across All 3 Milestones)
 
----
+| Milestone | Development Cost |
+|---|---|
+| MS1: Black MVP | $20,000 - $31,000 |
+| MS2: Yellow (Secret) | $23,000 - $40,000 |
+| MS3: Red (TS/SCI) | $30,000 - $62,000 |
+| **Total Tool Development** | **$73,000 - $133,000** |
 
-## Slide 14: Total Program Pricing (Tool Development)
-
-| Phase | Development | Year 1 Infra | Year 1 Total |
-|---|---|---|---|
-| Black MVP | $20K - $31K | $1.6K - $3.2K | **$21.5K - $34.2K** |
-| Yellow (Secret) | $23K - $40K | $42K - $114K | **$65K - $154K** |
-| Red (TS/SCI) | $30K - $62K | $120K - $228K | **$150K - $290K** |
-| **All Tiers** | **$73K - $133K** | **$163.6K - $345.2K** | **$236.5K - $478.2K** |
-
----
-
-## Slide 15: Veteran Vectors Services
-
-In addition to tool/infrastructure costs above:
+### Veteran Vectors Services
 
 | Item | Cost |
 |---|---|
-| **Veteran Vectors Development Fee** | **$30,000** (flat) |
-| **Veteran Vectors Retainer (15%)** | **15% of total contract value** |
-
-- Development fee covers architecture, build-out, integration, training, and project management by Veteran Vectors
-- 15% retainer covers ongoing advisory, maintenance coordination, escalation support, and future enhancement scoping
-- These fees are **independent of** tool licensing, infrastructure, and Game Warden costs
-
-**Example — Black MVP only:**
-Tool/Infra Year 1: ~$28K (midpoint) + $30K dev fee + $4,200 retainer (15% of $28K) = **~$62,200**
-
-**Example — Full Program (all 3 tiers):**
-Tool/Infra Year 1: ~$357K (midpoint) + $30K dev fee + $53,550 retainer (15% of $357K) = **~$440,550**
+| **VV Development & Engineering Fee** | **$35,000** (flat — full 6-month engagement) |
+| **VV Retainer (15%)** | **15% of monthly contract costs, beginning Month 3** |
 
 ---
 
-## Slide 16: Where the Money Goes
+## Slide 14: Infrastructure Costs by Milestone
 
-| Tier | Development % | Infrastructure % | Key Driver |
+| Milestone | Monthly Infra | Months Active (Yr 1) | Annual Infra |
 |---|---|---|---|
-| Black | ~90% | ~10% | Fast, lean — mostly engineering labor |
-| Yellow | ~35% | ~65% | **Game Warden platform fee** ($3K-$8K/mo) |
-| Red | ~20% | ~80% | **TS region premium** ($8K-$15K/mo) |
+| Black (runs all year) | $130 - $270/mo | 12 | $1,560 - $3,240 |
+| Yellow (starts ~Mo 3) | $3,500 - $9,500/mo | 10 | $35,000 - $95,000 |
+| Red (starts ~Mo 5) | $10,000 - $19,000/mo | 8 | $80,000 - $152,000 |
+| **Total Year 1 Infra** | | | **$116,560 - $250,240** |
 
-Game Warden fees are high but **replace a $200K-$500K+ independent ATO process** that takes 6-18 months.
+*Infrastructure timing assumes each tier goes live and stays running once deployed.*
 
 ---
 
-## Slide 17: Cost Reduction Levers
+## Slide 15: Veteran Vectors Retainer — How It Works
 
-- **Phase gating** — Start with Black only (~$28K). Expand based on results.
-- **Multi-tenant Game Warden** — Share a K8s cluster; significantly reduces platform fees
-- **Existing Game Warden contract** — If org already has one, onboarding costs drop
-- **Bundle discount** — Single contract across all tiers saves 10-15% on development
+**Months 1-2:** Development phase. VV $35K fee covers all engineering, PM, and training.
+
+**Month 3 onward:** 15% retainer kicks in on ongoing monthly costs (infrastructure + any active maintenance).
+
+| Monthly Infra (at full deployment) | Low | High |
+|---|---|---|
+| Combined infra (Black + Yellow + Red) | $13,630/mo | $28,770/mo |
+| **VV 15% retainer** | **$2,045/mo** | **$4,316/mo** |
+
+**Year 1 retainer estimate (Months 3-12 = 10 months):**
+- Low: ~$20,450
+- High: ~$43,160
+
+The retainer covers: ongoing advisory, maintenance coordination, escalation support, enhancement scoping, and priority support SLA.
+
+---
+
+## Slide 16: Total Year 1 Investment Summary
+
+| Category | Low Estimate | High Estimate |
+|---|---|---|
+| Tool development (all 3 milestones) | $73,000 | $133,000 |
+| Infrastructure (Year 1) | $116,560 | $250,240 |
+| VV development fee | $35,000 | $35,000 |
+| VV retainer (15%, Months 3-12) | $20,450 | $43,160 |
+| **Total Year 1** | **$245,010** | **$461,400** |
+| **Midpoint Estimate** | | **~$353,000** |
+
+### Payment Milestones
+
+| Milestone | Trigger | Payment |
+|---|---|---|
+| Contract Award | Signed | 20% of tool dev + full VV $35K fee |
+| MS1: Black MVP Accepted | March event UAT | 30% of tool dev |
+| MS2: Yellow Operational | SIPRNet deployment | 30% of tool dev |
+| MS3: Red Operational | JWICS acceptance | 20% of tool dev |
+| VV Retainer | Monthly, starting Month 3 | 15% of that month's infra costs |
+
+---
+
+## Slide 17: Where the Money Goes
+
+| Category | Low | High | % of Total |
+|---|---|---|---|
+| Tool development | $73K | $133K | ~30% |
+| Infrastructure (Game Warden + AWS) | $116.5K | $250.2K | ~50% |
+| VV development fee | $35K | $35K | ~10% |
+| VV retainer | $20.5K | $43.2K | ~10% |
+
+- **Black tier:** Almost all development labor. Infrastructure is negligible (~$200/mo).
+- **Yellow tier:** Game Warden platform fee ($3K-$8K/mo) is the dominant cost.
+- **Red tier:** TS region premium ($8K-$15K/mo) drives 80% of Red spend.
+- **Game Warden fees replace a $200K-$500K+ standalone ATO** that takes 6-18 months.
+
+---
+
+## Slide 18: Cost Reduction Levers
+
+- **Multi-tenant Game Warden** — Share a K8s cluster; cuts platform fees significantly
+- **Existing Game Warden contract** — Onboarding costs drop; fees may already be budgeted
 - **Iron Bank images** — PostgreSQL & NGINX already in Iron Bank; only n8n needs submission
+- **Phased infra spin-up** — Don't start Yellow/Red infra until that milestone is reached
+- **Midpoint targeting** — Scope tool development to midpoint estimates (~$103K) to control costs
 
 ---
 
-## Slide 18: Risk Mitigation
+## Slide 19: Risk Mitigation
 
 | Risk | Mitigation |
 |---|---|
@@ -231,31 +273,21 @@ Game Warden fees are high but **replace a $200K-$500K+ independent ATO process**
 | AI features unavailable on high side | Template-based reports work without AI; AI is a future add-on |
 | User adoption resistance | Familiar form-based UX; existing Power BI preserved where possible |
 | Network restrictions | Fully self-contained; zero external API calls |
-
----
-
-## Slide 19: Optional Add-Ons
-
-| Enhancement | Cost |
-|---|---|
-| Monthly maintenance & monitoring | $1,500 - $3,000/mo |
-| Additional survey templates | $1,500 - $2,500 each |
-| AI narrative integration (when available) | $5K - $10K |
-| Scaling to ~150 users (May event) | $2K - $4K |
-| Predictive gap trending (ML) | $8K - $15K |
-| Auto-generated briefing slides | $5K - $8K |
+| Scope creep | Milestone gates with defined deliverables; proceed or conclude at each |
 
 ---
 
 ## Slide 20: Next Steps
 
-1. **Review & Approve** this proposal and pricing
-2. **Contract Execution** — Finalize terms, milestones, and payments
-3. **Onboarding** — Access existing Power Automate flows, Power BI, and Excel data
-4. **Environment Provisioning** — AWS GovCloud or on-prem Docker
-5. **Development Begins** — Week 1 sprint
-6. **March Event** — Live MVP test with ~15 users
-7. **Expand or Conclude** at each milestone gate
+1. **Review & Approve** this integrated milestone proposal
+2. **Contract Execution** — Sign single 6-month engagement with milestone payments
+3. **Onboarding (Week 1)** — Access existing Power Automate flows, Power BI, Excel data
+4. **MS1 Build (Months 1-2)** — Black MVP development → March event UAT
+5. **MS2 Build (Months 2-4)** — Game Warden onboarding → SIPRNet deployment
+6. **MS3 Build (Months 4-6)** — TS promotion → JWICS operational acceptance
+7. **Retainer Begins (Month 3)** — Ongoing VV support at 15% of monthly infra
+
+**Single contract. Three milestones. Full classified deployment in 6 months.**
 
 **Contact: Veteran Vectors**
 

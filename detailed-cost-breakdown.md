@@ -1,320 +1,267 @@
-# Gap Analysis Platform — Detailed Cost Breakdown & Talking Points
-### Veteran Vectors Internal Reference
+# Gap Analysis Platform — Integrated Cost Breakdown & Talking Points
+### Veteran Vectors Internal Reference | 6-Month Milestone Engagement
 
-This document breaks down every cost line item so you can speak intelligently about where money goes, why, and how to scope conversations with the client.
-
----
-
-## 1. Veteran Vectors Fees (Your Revenue)
-
-These are **separate from** all tool, infrastructure, and platform costs below.
-
-| Item | Amount | What It Covers |
-|---|---|---|
-| **Development Fee** | $30,000 (flat) | Architecture design, n8n workflow development, integration engineering, Docker/Helm packaging, testing, UAT support, operator training, documentation, project management |
-| **Retainer (15%)** | 15% of total contract value | Ongoing advisory, maintenance coordination, escalation support, enhancement scoping, quarterly check-ins, priority support SLA |
-
-**How to position:** The $30K is your build cost — the hands-on-keyboard engineering to stand this up. The 15% retainer is your ongoing relationship — the client gets a team that knows the system inside and out, available for troubleshooting, enhancements, and scaling support.
-
-**Retainer examples by scope:**
-- Black only (~$28K tool/infra): 15% = ~$4,200/yr retainer → **Total VV revenue: ~$34,200**
-- All tiers (~$357K tool/infra): 15% = ~$53,550/yr retainer → **Total VV revenue: ~$83,550**
+This document gives you line-by-line detail on every cost in the integrated contract so you can speak confidently about where money goes, why, and how to structure conversations.
 
 ---
 
-## 2. Tier 1 — Black (Unclassified MVP) Costs in Detail
+## 1. Contract Structure at a Glance
 
-### Development Line Items ($20K - $31K range)
+**Single 6-month contract** with three milestone gates (Black → Yellow → Red).
 
-**n8n Workflow Build-Out — $8,000 - $12,000**
-- This is the core product: 5 production workflows in n8n
-- Survey distribution with roster-driven targeting and auto-reminders
-- Webhook-based form submission handler with validation/sanitization
-- Analytics engine: Likert distribution, NPS scoring, factor aggregation, time-series
-- Report generator: templated consultancy report with rankings and recommendations
-- Survey lifecycle manager: auto open/close/warn
-- *Why the range:* Lower end assumes clean data and straightforward requirements. Upper end accounts for complex business logic, edge cases, and iteration cycles.
-- *Conversation tip:* This is where the automation value lives. Each workflow replaces hours of manual work per survey cycle.
+| Component | Amount |
+|---|---|
+| Tool development (all 3 milestones) | $73,000 - $133,000 |
+| Infrastructure (Year 1) | $116,560 - $250,240 |
+| VV development fee (flat) | $35,000 |
+| VV retainer (15%, Months 3-12) | $20,450 - $43,160 |
+| **Year 1 Total** | **$245,010 - $461,400** |
+| **Midpoint** | **~$353,000** |
 
-**Data Schema Design & Migration — $2,000 - $3,000**
-- Design PostgreSQL schema for demographics, survey responses, gap definitions, survey config
-- Write migration scripts to import existing Excel/Forms data
-- Set up relationships, indexes, and constraints
-- *Why it matters:* This is what kills the Excel-to-Power BI fragility permanently. One-time cost to do it right.
+---
 
-**Dashboard Setup (Power BI or Metabase) — $3,000 - $5,000**
-- If Power BI: build connector to PostgreSQL, create/update dashboards
-- If Metabase: deploy open-source BI tool, build equivalent dashboards
-- Filtering by demographic, working group, time period
-- *Why the range:* Power BI connector is cheaper if they already have dashboards. Metabase from scratch costs more upfront but has $0 licensing.
+## 2. Veteran Vectors Revenue Breakdown
 
-**Consultancy Report Template & Generator — $2,000 - $3,000**
-- Markdown-based templated report
-- Executive summary, methodology, top-10 priority gaps, factor analysis tables, trend analysis
-- Actionable recommendations categorized: Immediate (NPS < -20), Monitor (-20 to 0), Maintain (> 0)
-- *Conversation tip:* This replaces the manual report-writing that takes analysts hours. Auto-generated on demand.
+### Development Fee — $35,000 (Flat)
 
-**Docker Containerization & Hardening — $1,500 - $2,500**
-- Docker Compose setup: n8n, PostgreSQL, NGINX as services
-- Non-root containers, minimal base images, health checks
-- Volume encryption, network isolation between services
-- This is also the foundation for Game Warden deployment later
-- *Why it matters:* Containerization is what makes classified deployment possible. Do it right in Black, reuse in Yellow/Red.
+This is your full 6-month engagement fee. It covers:
 
-**NGINX TLS & Security Configuration — $500 - $1,000**
-- TLS 1.2+ termination, security headers (HSTS, CSP, X-Frame-Options)
-- Rate limiting to prevent abuse
-- Reverse proxy routing to n8n and dashboard
-- *Straightforward cost.* Standard security configuration.
+- Architecture design and technical planning across all 3 tiers
+- n8n workflow development, integration engineering, Docker/Helm packaging
+- Game Warden pipeline setup and container hardening coordination
+- Testing support (UAT at March event, SIPRNet validation, JWICS acceptance)
+- Operator training and system documentation
+- Project management across all 3 milestones
 
-**Integration Testing & UAT — $2,000 - $3,000**
-- End-to-end testing with sample data
-- Power BI connector validation
-- User acceptance testing at March event with ~15 real users
-- Bug fixes and iteration based on feedback
-- *Conversation tip:* This is the March event milestone. Live users, real data, real feedback.
+**When it's paid:** In full at contract award (included in the 20% upfront payment). This de-risks VV — you're paid for your expertise before tool development costs start flowing.
 
-**Documentation & Operator Training — $1,000 - $1,500**
-- System administration guide
-- Workflow modification guide (so operators can adjust without the developer)
-- Troubleshooting runbook
-- 1-2 training sessions
-- *Why it matters:* Eliminates the single-operator bottleneck. Anyone can run this.
+**How to position:** "This is our engineering and project management fee for the full 6-month build. It covers architecture through operational acceptance at every classification level."
 
-### Monthly Infrastructure ($130 - $270/mo)
+### Retainer — 15% of Monthly Infrastructure, Starting Month 3
 
-| Item | Low | High | Notes |
+The retainer kicks in when infrastructure is running and VV shifts from build mode to support mode.
+
+**What it covers:**
+- Ongoing advisory and technical consultation
+- Maintenance coordination (patching, upgrades, incident response)
+- Escalation support and troubleshooting
+- Enhancement scoping for future features
+- Priority support SLA
+
+**Month-by-month retainer estimates:**
+
+| Month | Active Infra | Monthly Infra (Low) | Monthly Infra (High) | VV 15% (Low) | VV 15% (High) |
+|---|---|---|---|---|---|
+| 1-2 | Black only | $130 | $270 | — | — |
+| 3-4 | Black + Yellow | $3,630 | $9,770 | $545 | $1,466 |
+| 5-6 | Black + Yellow + Red | $13,630 | $28,770 | $2,045 | $4,316 |
+| 7-12 | All three running | $13,630 | $28,770 | $2,045 | $4,316 |
+
+**Year 1 retainer total (Months 3-12):**
+- Low: (2 x $545) + (8 x $2,045) = $1,090 + $16,360 = **~$17,450**
+- High: (2 x $1,466) + (8 x $4,316) = $2,932 + $34,528 = **~$37,460**
+
+*Note: The slide deck uses a simplified flat estimate (~$20K-$43K). The month-by-month ramp above is more precise since not all tiers are running from Month 3.*
+
+**How to position:** "Once we hand off each tier, the 15% retainer ensures you have a dedicated team that knows this system. You're not re-onboarding a vendor every time something needs attention."
+
+---
+
+## 3. Tool Development Costs — Line-by-Line Detail
+
+### Milestone 1: Black MVP ($20,000 - $31,000)
+
+| Line Item | Low | High | What You're Buying |
 |---|---|---|---|
-| AWS GovCloud compute (t3.medium) | $75 | $150 | Single VM runs everything. t3.medium = 2 vCPU, 4GB RAM. Sufficient for <50 users. |
+| n8n workflow build-out (5 workflows) | $8,000 | $12,000 | Core automation: survey distribution, form handler, analytics engine, report generator, lifecycle manager. This is the product. |
+| Data schema design + Excel/Forms migration | $2,000 | $3,000 | PostgreSQL schema for demographics, responses, gap definitions, survey config. Migration scripts for existing data. Kills Excel fragility permanently. |
+| Dashboard setup (Power BI or Metabase) | $3,000 | $5,000 | Connect PostgreSQL to BI tool. Build dashboards with filtering by demographic, working group, time period. Lower end if reusing existing Power BI dashboards. |
+| Consultancy report template + generator | $2,000 | $3,000 | Auto-generated markdown report: exec summary, top-10 gaps, factor analysis tables, trend analysis, actionable recommendations (Immediate/Monitor/Maintain). |
+| Docker containerization + hardening | $1,500 | $2,500 | Docker Compose: n8n + PostgreSQL + NGINX. Non-root containers, volume encryption, network isolation. Foundation for Game Warden later. |
+| NGINX TLS + security config | $500 | $1,000 | TLS 1.2+, HSTS, CSP, rate limiting, reverse proxy routing. Standard security hardening. |
+| Integration testing + UAT | $2,000 | $3,000 | End-to-end test with sample data. Live UAT at March event with ~15 users. Bug fixes from feedback. |
+| Documentation + operator training | $1,000 | $1,500 | Admin guide, workflow modification guide, troubleshooting runbook, 1-2 training sessions. Eliminates single-operator bottleneck. |
+
+**Key conversation points for MS1:**
+- This is the "prove it works" phase. Low cost, high visibility.
+- March event is the tangible deliverable — real users, real data.
+- Everything built here carries forward to Yellow and Red.
+
+### Milestone 2: Yellow / Secret ($23,000 - $40,000)
+
+| Line Item | Low | High | What You're Buying |
+|---|---|---|---|
+| Kubernetes/Helm chart conversion | $4,000 | $6,000 | Translate Docker Compose to Helm charts for K8s. Services, deployments, PVCs, config maps, secrets. Required for Game Warden. |
+| Iron Bank image submission (n8n) | $3,000 | $5,000 | DoD's hardened container registry. PostgreSQL + NGINX already in Iron Bank. n8n requires new submission: Dockerfile hardening, CVE remediation, docs. Range depends on CVE count. |
+| Game Warden onboarding + pipeline | $5,000 | $8,000 | Account setup with Second Front Systems, CI/CD pipeline config (push → scan → stage → promote). One-time cost — once set up, deployments are automated. |
+| Acceptance Baseline Criteria remediation | $3,000 | $6,000 | Resolve all critical/high CVEs, apply STIG hardening (non-root, file perms, minimal packages), pass Anchore scanning (NIST 800-53). Range depends on image cleanliness. |
+| Remove external API dependencies | $2,000 | $4,000 | Rip out any Google Sheets/Excel Online integrations from Black. Everything goes through PostgreSQL only. Hard requirement for classified — zero internet calls. |
+| Classified email relay integration | $1,000 | $2,000 | Swap commercial SMTP (SES) for approved classified mail relay. Test on SIPRNet. Straightforward — depends on which relay the org uses. |
+| SIPRNet testing + validation | $3,000 | $5,000 | Deploy to classified staging, test all 5 workflows end-to-end on SIPRNet. Validate no external calls, no broken deps. Cost is labor + access coordination time. |
+| Compliance documentation (SSP, POA&M) | $2,000 | $4,000 | System Security Plan, Plan of Action & Milestones. Game Warden simplifies this vs. standalone ATO, but docs are still required. |
+
+**Key conversation points for MS2:**
+- Game Warden onboarding ($5K-$8K) is a one-time gate. Once through, classified deployments are repeatable.
+- Iron Bank submission for n8n is the wildcard — if the org accepts equivalent hardening without formal Iron Bank submission, this drops.
+- "Remove external APIs" is non-negotiable for classified. Budget it.
+
+### Milestone 3: Red / TS/SCI ($30,000 - $62,000)
+
+| Line Item | Low | High | What You're Buying |
+|---|---|---|---|
+| TS environment provisioning + access | $3,000 | $5,000 | Coordinate AWS Top Secret Region access. Provisioning requests, security briefings, access approvals. Primarily labor and coordination. |
+| SCI access controls | $4,000 | $7,000 | Compartmented access controls beyond standard Secret. Role-based restrictions by SCI program. Enhanced access logging. Program-specific, often custom. |
+| AWS Diode cross-domain deployment | $5,000 | $10,000 | Configure cross-domain transfer pipeline (unclass → Secret → TS). Validate image integrity post-transfer. Specialized skill — few people have Diode experience. Premium reflects scarcity. |
+| Enhanced audit logging + monitoring | $2,000 | $4,000 | TS requires more granular audit trails. Monitoring dashboards for security events. Anomaly alerting. |
+| TS-specific compliance documentation | $3,000 | $6,000 | Additional SSP sections for TS, ICD 503 alignment (if applicable), program-specific security docs. |
+| Security assessment + pen test support | $5,000 | $10,000 | Support the org's security assessment team. Remediate findings. Cost is VV labor to support their review — the assessment itself may be done by the org or a third party. |
+| JWICS operational acceptance testing | $3,000 | $5,000 | End-to-end testing on JWICS (Top Secret network). Fully air-gapped validation. Requires TS clearance + physical facility access. |
+| External compliance team involvement | $5,000 | $15,000 | If org brings in external assessors. VV labor to support review, answer questions, remediate. Widest range — depends on assessment depth. |
+
+**Key conversation points for MS3:**
+- The wide ranges here reflect uncertainty at TS level. Every program has different requirements.
+- AWS Diode is the most specialized (and expensive) line item — this is niche expertise.
+- External compliance ($5K-$15K) is the biggest variable. Ask early if they'll use internal or external assessors.
+
+---
+
+## 4. Infrastructure Costs — Where the Real Money Goes
+
+### Black Infrastructure ($130 - $270/mo)
+
+| Item | Low | High | What It Is |
+|---|---|---|---|
+| AWS GovCloud compute (t3.medium) | $75 | $150 | Single VM: 2 vCPU, 4GB RAM. Runs everything. Sufficient for <50 users. |
 | PostgreSQL (RDS or self-hosted) | $30 | $75 | RDS is easier but costs more. Self-hosted on same VM is cheaper. |
-| S3 backup storage | $5 | $10 | Daily encrypted pg_dump backups, 30-day retention. Negligible cost. |
-| Domain + TLS cert | $12 | $15 | Annual domain registration + cert (or free via Let's Encrypt). |
-| SMTP relay (SES) | $10 | $20 | Amazon SES pricing: $0.10 per 1,000 emails. Even at 1,000 emails/mo this is ~$10. |
+| S3 backup storage | $5 | $10 | Daily encrypted pg_dump, 30-day retention. Negligible. |
+| Domain + TLS cert | $12 | $15 | Domain registration + cert (or free via Let's Encrypt). |
+| SMTP relay (SES) | $10 | $20 | $0.10 per 1,000 emails. Even heavy use is ~$10/mo. |
 
-**Year 1 total infrastructure: $1,560 - $3,240**
+**Bottom line:** Black infra is almost free. ~$200/mo. The cost here is 99% development labor.
 
-**Key point:** Black tier is cheap to run. The cost is almost entirely development labor.
+### Yellow Infrastructure ($3,500 - $9,500/mo)
 
----
-
-## 3. Tier 2 — Yellow (Secret) Costs in Detail
-
-### Development Line Items ($23K - $40K range)
-
-**Kubernetes/Helm Chart Conversion — $4,000 - $6,000**
-- Convert Docker Compose to Helm charts for K8s deployment
-- Define services, deployments, persistent volume claims, config maps, secrets
-- Game Warden requires K8s — this is the translation layer
-- *Conversation tip:* If you already have K8s experience in-house, this is straightforward. The cost is the conversion and testing, not learning K8s.
-
-**Iron Bank Image Submission for n8n — $3,000 - $5,000**
-- Iron Bank is DoD's hardened container registry
-- PostgreSQL and NGINX already exist in Iron Bank
-- n8n does NOT — requires submission: Dockerfile hardening, CVE remediation, documentation
-- *Why the range:* Depends on how many CVEs exist in n8n's dependency tree at submission time.
-- *Cost reduction:* If the org accepts a non-Iron Bank n8n image with equivalent hardening, this drops significantly.
-
-**Game Warden Onboarding & Pipeline Integration — $5,000 - $8,000**
-- Account setup, access provisioning, pipeline configuration
-- CI/CD integration: push images → scan → stage → promote
-- Working with Second Front Systems support team
-- *This is a one-time cost.* Once onboarded, deployments are automated.
-
-**Acceptance Baseline Criteria Remediation — $3,000 - $6,000**
-- Resolve all critical/high CVEs in container images
-- Apply STIG hardening (non-root, file permissions, removed unnecessary packages)
-- Pass Anchore vulnerability scanning (NIST 800-53 aligned)
-- *Why the range:* Depends entirely on CVE count at time of submission. Clean images = lower end.
-
-**Remove External API Dependencies — $2,000 - $4,000**
-- Black tier may use Google Sheets/Excel Online for familiar interface
-- Yellow tier: ALL external API calls must be removed
-- Migrate any Sheets integration to PostgreSQL-only
-- *Conversation tip:* This is a hard requirement for classified. No internet calls, period.
-
-**Classified Email Relay Integration — $1,000 - $2,000**
-- Configure SMTP to use approved classified mail relay (not commercial SES)
-- Test delivery on SIPRNet
-- *Straightforward.* Depends on which mail relay the org uses.
-
-**SIPRNet Testing & Validation — $3,000 - $5,000**
-- Deploy to staging on classified network
-- Test all 5 workflows end-to-end on SIPRNet
-- Validate no external calls, no broken dependencies
-- *Requires classified access and time on the network.* Cost is primarily labor + access coordination.
-
-**Compliance Documentation — $2,000 - $4,000**
-- System Security Plan (SSP)
-- Plan of Action & Milestones (POA&M)
-- Game Warden-specific documentation templates
-- *Note:* Game Warden simplifies this significantly vs. standalone ATO. But docs are still required.
-
-### Monthly Infrastructure ($3,500 - $9,500/mo)
-
-| Item | Low | High | Notes |
+| Item | Low | High | What It Is |
 |---|---|---|---|
-| **Game Warden platform fee** | $3,000 | $8,000 | **This is the dominant cost.** Single-tenant K8s cluster on AWS GovCloud Secret Region. Includes managed K8s, monitoring, patching, compliance tooling. |
+| **Game Warden platform fee** | **$3,000** | **$8,000** | **The dominant cost.** Single-tenant K8s cluster on AWS GovCloud Secret Region. Includes managed K8s, monitoring, patching, compliance tooling. |
 | AWS GovCloud Secret Region compute | $500 | $1,500 | Compute within the Game Warden cluster. Premium over commercial AWS. |
-| Managed services | Included | Included | Monitoring and patching included in Game Warden fee. |
+| Managed services | Included | Included | Monitoring and patching bundled in Game Warden fee. |
 
-**Year 1 total infrastructure: $42,000 - $114,000**
+**Bottom line:** Game Warden is $3K-$8K/mo. That's the number to know. It replaces a $200K-$500K+ standalone ATO and 6-18 months of calendar time. Multi-tenant clusters (sharing with other apps) can cut this significantly.
 
-**Key talking points:**
-- Game Warden fee looks expensive but **replaces independent ATO ($200K-$500K+) and 6-18 months of calendar time**
-- Multi-tenant cluster (sharing with other apps) can reduce platform fee significantly
-- If the org already has a Game Warden contract, onboarding is cheaper and platform fees may already be budgeted
+### Red Infrastructure ($10,000 - $19,000/mo)
 
----
-
-## 4. Tier 3 — Red (TS/SCI) Costs in Detail
-
-### Development Line Items ($30K - $62K range)
-
-**TS Environment Provisioning & Access — $3,000 - $5,000**
-- Coordinate access to AWS Top Secret Region
-- Provisioning requests, security briefings, access approvals
-- *Primarily labor and coordination time.*
-
-**Additional SCI Access Controls — $4,000 - $7,000**
-- Compartmented access controls beyond standard Secret
-- Role-based restrictions by SCI program
-- Enhanced access logging
-- *Why more expensive:* SCI requirements are program-specific and often require custom implementation.
-
-**AWS Diode Cross-Domain Deployment — $5,000 - $10,000**
-- AWS Diode = the mechanism to transfer data/images from unclass → Secret → TS
-- Configure cross-domain transfer pipeline
-- Validate image integrity post-transfer
-- *This is specialized work.* Few people have experience with AWS Diode. Premium cost reflects scarcity.
-
-**Enhanced Audit Logging & Monitoring — $2,000 - $4,000**
-- TS environments require more granular audit trails
-- Enhanced monitoring dashboards for security events
-- Alert configuration for anomalous activity
-
-**TS-Specific Compliance Documentation — $3,000 - $6,000**
-- Additional SSP sections for TS
-- ICD 503 alignment (if applicable)
-- Program-specific security documentation
-
-**Security Assessment & Pen Testing Support — $5,000 - $10,000**
-- Support security assessment team during evaluation
-- Remediate findings
-- *Note:* This may be done by the org's own security team or a third party. Cost here is our labor to support them.
-
-**JWICS Operational Acceptance Testing — $3,000 - $5,000**
-- End-to-end testing on JWICS (Top Secret network)
-- Validate all functionality in fully air-gapped environment
-- *Requires TS clearance and physical access to TS facilities.*
-
-**External Compliance Team Involvement — $5,000 - $15,000**
-- If the org brings in external compliance assessors
-- Our labor to support their review, answer questions, remediate findings
-- *Widest range:* Depends entirely on how thorough the assessment is.
-
-### Monthly Infrastructure ($10,000 - $19,000/mo)
-
-| Item | Low | High | Notes |
+| Item | Low | High | What It Is |
 |---|---|---|---|
-| **Game Warden platform fee (TS region)** | $8,000 | $15,000 | **Premium pricing** for Top Secret region. Fewer customers, higher security overhead, more expensive AWS TS Region. |
+| **Game Warden platform fee (TS)** | **$8,000** | **$15,000** | **Premium pricing.** TS region has fewer customers, higher security overhead, more expensive underlying AWS TS Region. |
 | AWS Top Secret Region compute | $1,500 | $3,000 | Significant premium over GovCloud commercial or Secret. |
-| Enhanced monitoring & compliance tools | $500 | $1,000 | Additional tooling required at TS level. |
+| Enhanced monitoring + compliance tools | $500 | $1,000 | Additional tooling required at TS level. |
 
-**Year 1 total infrastructure: $120,000 - $228,000**
-
----
-
-## 5. Full Program Summary with Veteran Vectors Fees
-
-### Low Estimate (All 3 Tiers)
-
-| Category | Cost |
-|---|---|
-| Black development | $20,000 |
-| Yellow development | $23,000 |
-| Red development | $30,000 |
-| **Subtotal tool development** | **$73,000** |
-| Black infra (Year 1) | $1,560 |
-| Yellow infra (Year 1) | $42,000 |
-| Red infra (Year 1) | $120,000 |
-| **Subtotal infrastructure** | **$163,560** |
-| **Tool + Infra Total** | **$236,560** |
-| Veteran Vectors development fee | $30,000 |
-| Veteran Vectors retainer (15% of $236,560) | $35,484 |
-| **Grand Total (Year 1)** | **$302,044** |
-
-### High Estimate (All 3 Tiers)
-
-| Category | Cost |
-|---|---|
-| Black development | $31,000 |
-| Yellow development | $40,000 |
-| Red development | $62,000 |
-| **Subtotal tool development** | **$133,000** |
-| Black infra (Year 1) | $3,240 |
-| Yellow infra (Year 1) | $114,000 |
-| Red infra (Year 1) | $228,000 |
-| **Subtotal infrastructure** | **$345,240** |
-| **Tool + Infra Total** | **$478,240** |
-| Veteran Vectors development fee | $30,000 |
-| Veteran Vectors retainer (15% of $478,240) | $71,736 |
-| **Grand Total (Year 1)** | **$579,976** |
-
-### Black MVP Only (Most Likely Starting Point)
-
-| Category | Low | High |
-|---|---|---|
-| Tool development | $20,000 | $31,000 |
-| Infrastructure (Year 1) | $1,560 | $3,240 |
-| **Tool + Infra** | **$21,560** | **$34,240** |
-| VV development fee | $30,000 | $30,000 |
-| VV retainer (15%) | $3,234 | $5,136 |
-| **Grand Total** | **$54,794** | **$69,376** |
+**Bottom line:** TS is expensive. $10K-$19K/mo. But the alternative is no TS capability at all (or $200K-$500K+ and 6-18 months for standalone ATO).
 
 ---
 
-## 6. Conversation Setup Guide
+## 5. Payment Schedule — How Cash Flows
 
-### Conversation 1: The Problem & Vision (Non-Technical)
-- Lead with the pain: broken Excel connections, 10+ flows, single-operator risk, no classified path
-- Show Before/After (Slide 4)
-- Don't get into tools yet — stay on business value
+### Upfront (Contract Award)
 
-### Conversation 2: The Technical Solution (With Technical Stakeholders)
-- Walk through the 5 workflows and tech stack
-- Emphasize: open-source, no vendor lock-in, containerized
-- Show Game Warden pathway — this is the differentiator vs. "just use Power Automate better"
-
-### Conversation 3: Pricing & Phasing
-- Start with Black MVP pricing — it's the easiest yes (~$55K-$69K all-in with VV fees)
-- Explain milestone gates: they can stop after Black if it doesn't deliver
-- Classified tiers are where infrastructure costs dominate — set expectation that Game Warden fees are real but replace $200K-$500K ATO
-- Position VV's $30K dev fee as the build cost, 15% retainer as the relationship
-
-### Conversation 4: Game Warden Deep Dive (If They Want Classified)
-- Explain ATO inheritance: weeks vs. 6-18 months
-- Walk through the deployment pipeline: push → scan → stage → promote
-- Discuss IL levels: IL2/IL4 (unclass), IL5/IL6 (Secret), TS/SCI
-- Multi-tenant vs. single-tenant cluster economics
-
-### Key Phrases to Use
-- "The tool is ready to deploy at any classification level because it's containerized from day one."
-- "Game Warden replaces a 6-18 month, $200K-$500K ATO process with weeks and a platform fee."
-- "We can start with Black at ~$55K and expand based on results. No commitment beyond the first milestone."
-- "The 15% retainer means you have a team that knows this system — not a vendor you have to re-onboard every time something changes."
-- "All open-source. No per-user licensing. No vendor lock-in."
-
-### Tools & Setup Reference
-
-| Tool | What It Is | Setup Needed |
+| Item | Low | High |
 |---|---|---|
-| **n8n** | Visual automation platform (like Power Automate but self-hosted) | Docker install, workflow import, webhook configuration |
-| **PostgreSQL** | Database replacing Excel | Schema creation, data migration from existing Excel/Forms |
-| **NGINX** | Web server / reverse proxy | TLS cert, security headers, routing config |
-| **Docker** | Container runtime | Install on host, docker-compose up |
-| **Helm** | Kubernetes package manager (Yellow/Red only) | Chart creation, Game Warden pipeline config |
-| **Game Warden** | DoD DevSecOps PaaS by Second Front Systems | Account onboarding, pipeline setup, image submission |
-| **Metabase** | Open-source BI dashboard (Power BI alternative) | Docker install, PostgreSQL connection, dashboard build |
-| **AWS GovCloud** | Government-compliant AWS region | Account provisioning, IAM setup, VPC config |
+| 20% of tool development | $14,600 | $26,600 |
+| VV development fee (full) | $35,000 | $35,000 |
+| **Total upfront** | **$49,600** | **$61,600** |
+
+### Month 2 (MS1: Black MVP Accepted)
+
+| Item | Low | High |
+|---|---|---|
+| 30% of tool development | $21,900 | $39,900 |
+| Black infra (2 months accrued) | $260 | $540 |
+| **Total at MS1** | **~$22,160** | **~$40,440** |
+
+### Month 4 (MS2: Yellow Operational)
+
+| Item | Low | High |
+|---|---|---|
+| 30% of tool development | $21,900 | $39,900 |
+| Yellow infra (2 months accrued) | $7,000 | $19,000 |
+| VV retainer (Months 3-4) | $1,090 | $2,932 |
+| **Total at MS2** | **~$29,990** | **~$61,832** |
+
+### Month 6 (MS3: Red Operational)
+
+| Item | Low | High |
+|---|---|---|
+| 20% of tool development | $14,600 | $26,600 |
+| Red infra (2 months accrued) | $20,000 | $38,000 |
+| VV retainer (Months 5-6) | $4,090 | $8,632 |
+| **Total at MS3** | **~$38,690** | **~$73,232** |
+
+### Months 7-12 (Post-Engagement, Ongoing)
+
+| Item | Monthly Low | Monthly High |
+|---|---|---|
+| All infra running | $13,630 | $28,770 |
+| VV retainer (15%) | $2,045 | $4,316 |
+| **Monthly total** | **~$15,675** | **~$33,086** |
+
+---
+
+## 6. Conversation Playbook
+
+### Conversation 1: Problem & Vision (Non-Technical Decision Maker)
+- Lead with pain: broken Excel, 10+ flows, single-operator risk, no classified path
+- Show Before/After table
+- Don't discuss tools yet — stay on business outcomes
+- **Key line:** "Right now this system fails if one person is unavailable. We fix that permanently."
+
+### Conversation 2: Technical Solution (Technical Stakeholders)
+- Walk through 5 workflows and tech stack
+- Emphasize: open-source, no vendor lock-in, containerized from day one
+- Game Warden pathway is the differentiator vs. "just fix Power Automate"
+- **Key line:** "Everything we build in Black carries directly to classified. No rebuild, no re-architecture."
+
+### Conversation 3: Integrated Pricing (Budget Authority)
+- Present the single-contract milestone structure
+- Lead with the $35K VV fee — that's their cost to get started (plus 20% of tool dev)
+- Upfront outlay is ~$50K-$62K. That's the "first check."
+- Infrastructure is the big number but it's **monthly and scales with deployment**
+- **Key line:** "The upfront is ~$50K-$62K. After that, costs are milestone-gated — you only pay for tiers you deploy."
+
+### Conversation 4: Game Warden Deep Dive (If Classified Is the Goal)
+- ATO inheritance: weeks vs. 6-18 months
+- Pipeline walkthrough: push → scan → stage → promote
+- IL levels: IL2/IL4 (unclass), IL5/IL6 (Secret), TS/SCI
+- Multi-tenant vs. single-tenant economics
+- **Key line:** "Game Warden replaces a $200K-$500K, 6-18 month ATO process with a platform fee and a weeks-long onboarding."
+
+### Objection Handling
+
+| Objection | Response |
+|---|---|
+| "That's a lot of money." | "The infrastructure costs are Game Warden + AWS — that's the price of classified deployment. The alternative is $200K-$500K for standalone ATO. Our VV fee is $35K for a 6-month build across 3 classification levels." |
+| "Can we just do Black?" | "Yes. Black MVP is ~$50K-$62K upfront. You get a working system, prove it out at the March event, and decide from there. The contract has milestone gates for exactly this." |
+| "Why not fix Power Automate?" | "Power Automate can't deploy to classified networks. It has no Game Warden pathway. And you'd still have 10+ siloed flows and broken Excel connections." |
+| "What's the retainer for?" | "Once we build it, you need someone who knows the system for maintenance, troubleshooting, and future enhancements. The 15% retainer starting Month 3 ensures priority support without re-onboarding." |
+| "Can the retainer start later?" | "It starts Month 3 — when Yellow infra is live and there's actual infrastructure to support. During Months 1-2, the $35K dev fee covers everything." |
+
+---
+
+## 7. Quick Reference — Tools & What They Do
+
+| Tool | What It Is | Cost | Setup Complexity |
+|---|---|---|---|
+| **n8n** | Visual automation engine (self-hosted Power Automate alternative) | Free (open-source) | Medium — Docker deploy, workflow config |
+| **PostgreSQL 16** | Relational database replacing Excel | Free (open-source) | Low — schema + migration scripts |
+| **NGINX** | Reverse proxy with TLS | Free (open-source) | Low — standard config |
+| **Docker** | Container runtime | Free (open-source) | Low — install + compose up |
+| **Helm** | K8s package manager (Yellow/Red) | Free (open-source) | Medium — chart creation |
+| **Game Warden** | DoD DevSecOps PaaS (Second Front Systems) | $3K-$15K/mo | High — onboarding + pipeline setup |
+| **Metabase** | Open-source BI dashboard (Power BI alternative) | Free (open-source) | Medium — deploy + build dashboards |
+| **AWS GovCloud** | Government-compliant cloud | $130-$19K/mo (tier-dependent) | Medium-High — account + VPC + IAM |
+| **Iron Bank** | DoD hardened container registry | Free (access) | High — image submission + CVE remediation |
+| **AWS Diode** | Cross-domain transfer (unclass → Secret → TS) | Included in AWS | High — specialized configuration |
+
+**Key point:** Every tool except Game Warden and AWS is free/open-source. The licensing cost of this stack is $0. You're paying for engineering labor and cloud infrastructure.
 
 ---
