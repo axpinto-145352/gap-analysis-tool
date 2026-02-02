@@ -82,14 +82,44 @@ This is your full 6-month engagement fee. It covers:
 
 ### Retainer — 15% of Monthly Infrastructure, Starting Month 3
 
-The retainer kicks in when infrastructure is running and VV shifts from build mode to support mode.
+The retainer kicks in when infrastructure is running and VV shifts from build mode to support mode. This is not a vague "advisory" fee — it covers concrete, recurring work.
 
-**What it covers:**
-- Ongoing advisory and technical consultation
-- Maintenance coordination (patching, upgrades, incident response)
-- Escalation support and troubleshooting
-- Enhancement scoping for future features
-- Priority support SLA
+#### Container Lifecycle Management (the core of the retainer)
+
+Containers are not patched in place like traditional servers. They follow a **rebuild-and-redeploy** cycle:
+
+1. **VV monitors upstream releases** — n8n, PostgreSQL 16, NGINX, and all base image dependencies. Tracks CVE disclosures, version releases, and security advisories.
+2. **VV rebuilds container images** — Updates the Dockerfile (e.g., bump `postgresql:16.2` → `16.3`), resolves any new CVEs, rebuilds the image.
+3. **VV tests on unclassified** — Runs full end-to-end test suite against the updated images. Validates no regressions.
+4. **VV delivers updated images** — Hands off tested images to the client for deployment.
+5. **On classified tiers** — Updated images go through Game Warden pipeline again: push → ClamAV scan → Anchore scan → STIG check → stage → promote. Same process as initial deployment, just with a patched image.
+
+**Update frequency:**
+| Type | Frequency | Example |
+|---|---|---|
+| Critical CVE patches | Same-week rebuild | OpenSSL vulnerability, PostgreSQL auth bypass |
+| Minor security patches | Monthly, batched | Dependency bumps, base image updates |
+| Minor version upgrades | Quarterly | n8n 1.42 → 1.43, NGINX patch release |
+| Major version upgrades | Annually, planned | PostgreSQL 16 → 17, n8n major release |
+
+**Why this matters:** Without this, the client is responsible for tracking every upstream CVE, understanding which dependencies are affected, rebuilding images, and re-testing. The retainer means VV handles all of that — the client just deploys the updated images.
+
+#### Operational Support
+
+- **Incident response** — Priority SLA for production issues. VV triages, diagnoses, and delivers a fix or workaround.
+- **Workflow modifications** — As operational needs evolve (new survey types, changed scoring logic, new report sections), VV adjusts n8n workflows. Note: n8n workflows live in the database, not the container image, so workflow changes don't require a container rebuild.
+- **Infrastructure monitoring review** — Periodic review of system health, resource utilization, and alerting thresholds.
+- **Database maintenance** — Backup verification, index tuning, storage management, query performance review.
+- **Classified deployment support** — When updated images need to go through Game Warden pipeline, VV provides documentation and support for the promotion process.
+
+#### Advisory & Planning
+
+- **Enhancement scoping** — When the client wants new features (AI narrative, predictive trending, automated briefing slides), VV scopes the work, estimates cost, and plans implementation.
+- **Quarterly architecture reviews** — Assess system health, identify optimization opportunities, plan for scaling.
+- **Compliance posture updates** — As CMMC/NIST requirements evolve, VV assesses impact and recommends adjustments.
+- **Scaling support** — For events like the May event (~150 users), VV load-tests and adjusts infrastructure/config as needed.
+
+**How to position:** "The retainer isn't an advisory fee — it's hands-on-keyboard work. We monitor every upstream release, rebuild your container images with patches, test them, and hand them off ready to deploy. You also get priority support for production issues, workflow changes, and planning for future capabilities. Without it, your team is responsible for tracking CVEs across three open-source projects and two classification levels."
 
 **Month-by-month retainer estimates:**
 

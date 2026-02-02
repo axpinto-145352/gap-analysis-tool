@@ -201,22 +201,38 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 ---
 
-## Slide 15: Veteran Vectors Retainer — How It Works
+## Slide 15: Veteran Vectors Retainer & Maintenance Model
 
 **Months 1-2:** Development phase. VV $35K fee covers all engineering, PM, and training.
 
-**Month 3 onward:** 15% retainer kicks in on ongoing monthly costs (infrastructure + any active maintenance).
+**Month 3 onward:** 15% retainer kicks in on ongoing monthly infrastructure costs.
 
 | Monthly Infra (at full deployment) | Low | High |
 |---|---|---|
 | Combined infra (Black + Yellow + Red) | $13,630/mo | $28,770/mo |
 | **VV 15% retainer** | **$2,045/mo** | **$4,316/mo** |
 
-**Year 1 retainer estimate (Months 3-12 = 10 months):**
-- Low: ~$20,450
-- High: ~$43,160
+**Year 1 retainer estimate (Months 3-12 = 10 months):** ~$20,450 - $43,160
 
-The retainer covers: ongoing advisory, maintenance coordination, escalation support, enhancement scoping, and priority support SLA.
+### What the Retainer Covers
+
+**Container Lifecycle Management:**
+- Monitor upstream releases (n8n, PostgreSQL, NGINX) for security patches and version updates
+- Rebuild container images with patches, test on unclassified, deliver updated images
+- Critical CVE patches: same-week image rebuild. Minor updates: batched monthly/quarterly.
+- On classified tiers, updated images go through Game Warden pipeline (scan → stage → promote)
+
+**Operational Support:**
+- Troubleshooting and incident response (priority SLA)
+- Workflow modifications as operational needs evolve
+- Infrastructure monitoring and alerting review
+- Database maintenance (backups verification, index tuning, storage management)
+
+**Advisory & Planning:**
+- Enhancement scoping for future features (AI narrative, predictive trending, etc.)
+- Quarterly architecture reviews
+- Compliance posture updates as CMMC/NIST requirements evolve
+- Scaling support for larger user populations (e.g., May event ~150 users)
 
 ---
 
