@@ -26,13 +26,15 @@ Secure, Scalable Survey-to-Insight Pipeline for Defense & Intelligence Operation
 
 ## Slide 3: The Solution
 
-Replace the fragile Microsoft patchwork with a **self-hosted n8n automation platform** in Docker:
+Replace the fragile Microsoft patchwork with a **self-hosted automation appliance** packaged in Docker containers:
 
 - **One platform** replaces Forms + Power Automate + VBA scripts
 - **PostgreSQL** replaces fragile Excel connections permanently
 - **Automated analytics & reports** — no manual calculations
-- **Docker containerized** — deploys at any classification level
+- **Docker containerized** — the entire system (app, DB, web server, workflows) ships as portable container images that run on any Docker or Kubernetes host
 - **Game Warden pathway** — inherited ATO in weeks, not 6-18 months
+
+**Delivery model:** This is not SaaS. It's a self-hosted, client-owned appliance. VV builds and packages it; the client owns and operates it on their infrastructure. No vendor dependency, no subscription, no shared tenancy. The same container images move from unclass → Secret → TS without rebuilding.
 
 ---
 
@@ -113,6 +115,8 @@ Single contract. Milestone reviews at each gate. Full deliverables at every stag
 - Classified email relay integration
 - SIPRNet end-to-end testing + compliance documentation (SSP, POA&M)
 
+**Classified Testing Model:** Client's cleared personnel execute VV-provided test scripts on SIPRNet. VV provides real-time support from unclassified. If client sponsors VV operator access, VV tests directly on classified as a backup option.
+
 **Deliverables:** Operational classified deployment, inherited ATO, compliance docs
 
 **Tool Development Cost:** $23K - $40K
@@ -125,6 +129,7 @@ Single contract. Milestone reviews at each gate. Full deliverables at every stag
 - Promotion to AWS Top Secret Region via AWS Diode
 - Additional SCI compartment access controls
 - Enhanced audit logging and monitoring
+- Same classified testing model as Yellow — client personnel test on JWICS with VV support from unclass
 - Fully air-gapped — all dependencies bundled
 - JWICS operational acceptance testing
 
@@ -269,7 +274,7 @@ The retainer covers: ongoing advisory, maintenance coordination, escalation supp
 | # | Risk | Likelihood | Impact | Severity | Mitigation |
 |---|---|---|---|---|---|
 | R1 | Game Warden onboarding delays | Medium | High | **High** | Built to CMMC/NIST from day one; pre-approved container patterns. Parallel prep during Black so Yellow isn't blocked. |
-| R2 | Classified network access delays (SIPRNet/JWICS) | Medium | High | **High** | Begin access coordination at contract award — not at milestone start. Build in 2-week buffer per classified milestone. |
+| R2 | Classified testing coordination | Medium | Medium | **Medium** | Primary: client personnel test on classified using VV test scripts + unclass support. Backup: client sponsors VV operator clearance access for direct testing. Reduces dependency on VV clearance sponsorship. |
 | R3 | n8n Iron Bank submission rejected or delayed | Medium | Medium | **Medium** | Prepare hardened image during Black. If rejected, deploy with equivalent STIG hardening outside Iron Bank under org waiver. |
 | R4 | CVE count in n8n dependency tree exceeds budget | Medium | Medium | **Medium** | Scope remediation budget at upper range ($6K). Pin stable dependency versions. Monitor CVE feeds pre-submission. |
 | R5 | Power BI unavailable on classified network | Low | Medium | **Medium** | Metabase (open-source) included as drop-in fallback. Both options built during Black MVP. |

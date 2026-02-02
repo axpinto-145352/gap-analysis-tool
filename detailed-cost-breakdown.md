@@ -5,7 +5,50 @@ This document gives you line-by-line detail on every cost in the integrated cont
 
 ---
 
-## 1. Contract Structure at a Glance
+## 1a. What We're Delivering (Not SaaS)
+
+This is **not a SaaS product**. It's a **self-hosted, client-owned automation appliance** packaged as Docker container images.
+
+**What that means:**
+- The entire system — n8n (automation engine), PostgreSQL (database), NGINX (web server), and all 5 workflows — ships as portable container images
+- Those images run on any environment that supports Docker (unclass) or Kubernetes (classified via Game Warden)
+- The client owns everything: code, containers, data, infrastructure
+- No shared tenancy, no VV-hosted servers, no subscription model
+- The same container images built in Black move directly to Yellow and Red without rebuilding
+
+**How to explain it:** "Think of it like delivering a turnkey appliance that happens to be software. We build it, package it in containers, hand you the containers and all the source code, and you run it wherever you need — your own server, AWS GovCloud, or Game Warden's classified K8s cluster. You own it completely."
+
+**Why this matters for classified:** Container portability is what makes the Black → Yellow → Red progression possible. The images are the same — only the hosting environment changes. No re-architecture, no rebuild, no new codebase per tier.
+
+---
+
+## 1b. Classified Network Access Model
+
+VV's lead operator holds an active TS/SCI clearance but is not currently sponsored under a facility clearance (FCL) tied to VV. This means direct VV access to SIPRNet/JWICS requires client action. The engagement is structured to work without it.
+
+### Primary Model: Client-Executed Classified Testing
+
+- VV builds, packages, and validates everything on **unclassified** environments
+- VV delivers **detailed test scripts, deployment runbooks, and validation checklists** for each classified milestone
+- **Client's cleared personnel** execute those scripts on SIPRNet (Yellow) and JWICS (Red)
+- VV provides **real-time support from unclassified** (phone, chat, screen share of unclass replica) during classified testing windows
+- All bugs, issues, and configuration changes are resolved by VV on unclass and re-delivered as updated container images
+
+**Why this works:** The system is fully containerized. If it passes end-to-end testing on unclass (which VV validates directly), the only variables on classified are network-specific configuration (mail relay, DNS, firewall rules) — not application logic. The test scripts are designed to validate exactly those variables.
+
+### Backup Model: Client-Sponsored VV Access
+
+- Client organization sponsors VV operator's existing TS/SCI clearance onto their program
+- Client provides SCIF access for VV operator to test directly on SIPRNet/JWICS
+- This is faster for troubleshooting but requires the client's security office to process the access request
+
+**Recommendation:** Start with the primary model. If classified testing reveals issues that are difficult to debug remotely, escalate to the backup model. The access sponsorship request can be initiated at contract award as a parallel track so it's ready if needed.
+
+**Conversation tip:** "Our operator holds TS/SCI. We've structured the engagement so classified testing works without requiring you to sponsor our access — your team runs our test scripts and we support from unclass. But if you want us hands-on-keyboard on classified, we just need your security office to sponsor the existing clearance."
+
+---
+
+## 2. Contract Structure at a Glance
 
 **Single 6-month contract** with three milestone gates (Black → Yellow → Red).
 
@@ -20,7 +63,7 @@ This document gives you line-by-line detail on every cost in the integrated cont
 
 ---
 
-## 2. Veteran Vectors Revenue Breakdown
+## 3. Veteran Vectors Revenue Breakdown
 
 ### Development Fee — $35,000 (Flat)
 
@@ -67,7 +110,7 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 
 ---
 
-## 3. Tool Development Costs — Line-by-Line Detail
+## 4. Tool Development Costs — Line-by-Line Detail
 
 ### Milestone 1: Black MVP ($20,000 - $31,000)
 
@@ -125,7 +168,7 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 
 ---
 
-## 4. Infrastructure Costs — Where the Real Money Goes
+## 5. Infrastructure Costs — Where the Real Money Goes
 
 ### Black Infrastructure ($130 - $270/mo)
 
@@ -161,7 +204,7 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 
 ---
 
-## 5. Payment Schedule — How Cash Flows
+## 6. Payment Schedule — How Cash Flows
 
 ### Upfront (Contract Award)
 
@@ -210,14 +253,14 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 
 ---
 
-## 6. Risk Assessment & Mitigation — Full Detail
+## 7. Risk Assessment & Mitigation — Full Detail
 
 ### Risk Matrix
 
 | # | Risk | Likelihood | Impact | Severity | Milestone Affected |
 |---|---|---|---|---|---|
 | R1 | Game Warden onboarding delays | Medium | High | **High** | MS2 (Yellow) |
-| R2 | Classified network access delays | Medium | High | **High** | MS2, MS3 |
+| R2 | Classified testing coordination | Medium | Medium | **Medium** | MS2, MS3 |
 | R3 | Iron Bank submission rejected/delayed | Medium | Medium | **Medium** | MS2 (Yellow) |
 | R4 | CVE count exceeds remediation budget | Medium | Medium | **Medium** | MS2 (Yellow) |
 | R5 | Power BI unavailable on classified | Low | Medium | **Medium** | MS2, MS3 |
@@ -236,12 +279,13 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 - *Budget impact:* If delayed 2-4 weeks, no additional cost — just schedule shift. If delayed >1 month, may need to extend Yellow timeline and accrue extra infra costs (~$3.5K-$9.5K/mo).
 - *Conversation tip:* "We start Game Warden coordination on day one, not when we need it. By the time Black MVP is done, we're already in the pipeline."
 
-**R2: Classified Network Access Delays — HIGH**
-- *What happens:* Getting developer access to SIPRNet or JWICS takes longer than planned. Can't test or deploy on classified.
-- *Why it's likely:* Access to classified networks involves security briefings, account provisioning, and physical facility scheduling — all bureaucratic processes.
-- *Mitigation:* Begin access coordination at contract award. Build 2-week buffer into each classified milestone. All development and testing that can happen on unclassified happens first.
-- *Budget impact:* Delay doesn't add development cost, but extends the timeline and accrues infra costs for tiers already running.
-- *Conversation tip:* "We need the org to start access requests immediately at signing. The development can proceed in parallel, but testing on classified requires access."
+**R2: Classified Testing Coordination — MEDIUM (downgraded from HIGH)**
+- *What happens:* Classified testing requires coordination between VV (unclass) and client personnel (on SIPRNet/JWICS). Communication latency or unfamiliar test procedures slow progress.
+- *Why it's medium, not high:* The primary access model eliminates the dependency on VV clearance sponsorship. Client personnel test on classified using VV-provided scripts; VV supports from unclass. This avoids the bureaucratic delays of clearance sponsorship entirely.
+- *Primary mitigation (Option 4):* VV delivers detailed test scripts, deployment runbooks, and validation checklists. Client's cleared personnel execute on classified. VV provides real-time support from unclass (phone, chat, screen share of unclass replica). All issues resolved on unclass and re-delivered as updated containers.
+- *Backup mitigation (Option 2):* Client sponsors VV operator's existing TS/SCI clearance onto their program and provides SCIF access. This enables VV to test directly on classified. Initiate sponsorship request at contract award as a parallel track so it's available if needed.
+- *Budget impact:* Primary model has no additional cost — test scripts are part of the standard deliverable. Backup model depends on client's sponsorship timeline (no cost to VV, but calendar time for the client's security office).
+- *Conversation tip:* "We've structured this so your team runs classified testing with our scripts and real-time support. If you'd rather have us hands-on-keyboard on classified, we just need your security office to sponsor our operator's existing TS/SCI."
 
 **R3: Iron Bank Submission Rejected or Delayed — MEDIUM**
 - *What happens:* n8n container image fails Iron Bank review. Requires additional remediation cycles.
@@ -304,12 +348,12 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 | Milestone | Key Risks | Biggest Concern |
 |---|---|---|
 | **MS1: Black** | R6 (adoption), R8 (scope creep) | Low overall risk. Controlled environment, small user group. |
-| **MS2: Yellow** | R1 (Game Warden), R2 (access), R3 (Iron Bank), R4 (CVEs) | **Highest risk milestone.** Third-party dependencies (Game Warden, Iron Bank) and classified access coordination. |
-| **MS3: Red** | R2 (access), R9 (Diode), R10 (compliance) | Moderate risk. Most unknowns are TS-program-specific. Budget upper ranges to absorb. |
+| **MS2: Yellow** | R1 (Game Warden), R2 (testing coord), R3 (Iron Bank), R4 (CVEs) | **Highest risk milestone.** Third-party dependencies (Game Warden, Iron Bank). Classified testing mitigated by client-executed model. |
+| **MS3: Red** | R2 (testing coord), R9 (Diode), R10 (compliance) | Moderate risk. Most unknowns are TS-program-specific. Budget upper ranges to absorb. |
 
 ---
 
-## 7. Conversation Playbook
+## 8. Conversation Playbook
 
 ### Conversation 1: Problem & Vision (Non-Technical Decision Maker)
 - Lead with pain: broken Excel, 10+ flows, single-operator risk, no classified path
@@ -349,7 +393,7 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 
 ---
 
-## 7. Quick Reference — Tools & What They Do
+## 9. Quick Reference — Tools & What They Do
 
 | Tool | What It Is | Cost | Setup Complexity |
 |---|---|---|---|
