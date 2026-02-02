@@ -275,13 +275,36 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 ---
 
-## Slide 18: Cost Reduction Levers
+## Slide 18: Government-Ready Product & Downstream Sale
 
-- **Multi-tenant Game Warden** — Share a K8s cluster; cuts platform fees significantly
-- **Existing Game Warden contract** — Onboarding costs drop; fees may already be budgeted
-- **Iron Bank images** — PostgreSQL & NGINX already in Iron Bank; only n8n needs submission
-- **Phased infra spin-up** — Don't start Yellow/Red infra until that milestone is reached
-- **Midpoint targeting** — Scope tool development to midpoint estimates (~$103K) to control costs
+This is a **commercial B2B engagement** between VV and the defense contractor. The product is built to be **resold to a downstream government entity**.
+
+### What VV Delivers (Product-Ready for Gov Sale)
+
+| Requirement | How We Address It |
+|---|---|
+| **Data rights / IP** | Contractor receives unlimited rights to all custom code, workflows, configs, and Helm charts. Open-source components retain existing licenses (MIT for n8n, PostgreSQL License, BSD for NGINX). Clean IP chain for gov resale. |
+| **Section 508 accessibility** | Web forms and dashboards built to WCAG 2.1 AA. Required for any IT product sold to the government. |
+| **Software supply chain (SCRM)** | Full Software Bill of Materials (SBOM) delivered per NIST SP 800-218. Documents every component and its origin. n8n is open-source (German company, Sustainable Use License). PostgreSQL and NGINX are widely used, US-maintained open-source. |
+| **CMMC / NIST 800-171 compliance** | Built-in from day one — access control, audit logging, encryption, input sanitization. Compliance documentation (SSP, POA&M) delivered at Yellow/Red milestones. |
+| **Game Warden / ATO readiness** | Containerized, hardened, Iron Bank-compatible. Inherits ATO through Game Warden — the contractor doesn't need to pursue standalone certification. |
+| **Transition / exit plan** | All code, IaC, docs, and training delivered at each milestone. Contractor can operate independently or hand off to government operators. |
+
+### What the Contractor Handles (for Gov Sale)
+
+- SAM.gov registration, CAGE code, UEI, NAICS codes (contractor's responsibility)
+- FAR/DFARS clause compliance in their government contract
+- Contract vehicle selection (GSA Schedule, OTA, SBIR, direct award)
+- CDRLs mapped to VV milestone deliverables
+- Government contracting officer relationship
+- Insurance requirements (cyber liability, E&O, general liability)
+
+### Cost Reduction Levers
+
+- **Multi-tenant Game Warden** — Share K8s cluster to cut platform fees
+- **Existing Game Warden contract** — Reduces onboarding cost if contractor already has one
+- **Bundle discount** — Single contract across all tiers saves 10-15% on development
+- **Phased infra spin-up** — Don't start Yellow/Red infra until milestone is reached
 
 ---
 

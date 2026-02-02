@@ -383,7 +383,114 @@ Containers are not patched in place like traditional servers. They follow a **re
 
 ---
 
-## 8. Conversation Playbook
+## 8. Government-Ready Product — Downstream Sale Considerations
+
+### The Sales Chain
+
+```
+VV (builds) → Defense Contractor (buys, operates, resells) → Government Entity (end user)
+```
+
+**Your contract with the defense contractor is commercial B2B.** No FAR/DFARS clauses, no CDRLs, no SAM.gov registration required for this sale. Standard commercial terms.
+
+**But the product must be government-ready** so the contractor can resell it downstream. Everything below is about making the product sellable — not about making your contract compliant.
+
+### What VV Must Build Into the Product
+
+**1. Data Rights / Intellectual Property — CRITICAL**
+
+The contractor needs a clean IP chain to resell to government. Government contracts typically invoke DFARS 252.227-7014 (technical data) and 252.227-7018 (software).
+
+- **Custom code** (n8n workflows, Helm charts, configs, migration scripts, report templates): Contractor receives **unlimited rights**. They can modify, redistribute, and deliver to government without restriction.
+- **Open-source components**: Retain their existing licenses. The contractor must disclose these to the government buyer.
+  - n8n: Sustainable Use License (free for self-hosted; no resale restrictions on the instance, but n8n the company retains the codebase)
+  - PostgreSQL: PostgreSQL License (permissive, similar to MIT)
+  - NGINX: BSD 2-clause (permissive)
+  - Metabase: AGPL v3 (open-source; self-hosted use is fine)
+- **Deliverable:** IP Rights Summary document delivered at MS1, listing all components, their licenses, and the contractor's rights to each.
+
+*Conversation tip:* "You get unlimited rights to everything we build custom. The open-source components carry their existing licenses — all permissive and compatible with government use. We deliver a full IP rights summary so your contracting team has clean documentation for the gov sale."
+
+**2. Section 508 Accessibility**
+
+Any IT product sold to the government must comply with Section 508 of the Rehabilitation Act — meaning accessible to users with disabilities.
+
+- Web survey forms: WCAG 2.1 AA compliance (keyboard navigation, screen reader support, color contrast, form labels)
+- Dashboard views: Accessible charts and tables (alt text, data tables alongside visualizations)
+- Reports: Generated in accessible markdown/HTML format
+- **Deliverable:** Voluntary Product Accessibility Template (VPAT) or Section 508 conformance statement delivered at MS1.
+
+*Budget note:* Basic 508 compliance is built into the MS1 development cost. If the contractor's gov buyer requires a formal VPAT (common for larger acquisitions), that's an additional $2K-$4K effort. Flag this early.
+
+*Conversation tip:* "We build to WCAG 2.1 AA from the start. If the government buyer requires a formal VPAT, we can produce one — it's a small additional effort."
+
+**3. Software Supply Chain / SCRM**
+
+Executive Order 14028 (Improving the Nation's Cybersecurity) requires software supply chain transparency for products sold to the federal government. NIST SP 800-218 (SSDF) is the standard.
+
+- **Software Bill of Materials (SBOM):** Machine-readable inventory of every component, dependency, and version in the container images. Generated automatically during build.
+- **Provenance documentation:** Where each component comes from, who maintains it, and its security track record.
+- **n8n supply chain note:** n8n GmbH is a German company. The software is open-source and source code is publicly auditable. For programs with strict supply chain requirements, flag this early — some government buyers may require a supply chain risk assessment for foreign-origin software.
+- **Deliverable:** SBOM (CycloneDX or SPDX format) and supply chain summary delivered at each milestone.
+
+*Conversation tip:* "We generate a full SBOM at every release. Every component is documented — origin, license, maintainer. n8n is open-source and publicly auditable. If the gov buyer has SCRM concerns about foreign-origin software, we can walk through the risk assessment."
+
+**4. CMMC / NIST 800-171 Compliance (Already Covered)**
+
+Already built into the architecture from day one (see Slides 12 and the security section of the original proposal). The compliance documentation (SSP, POA&M) delivered at Yellow/Red milestones is what the contractor will hand to the government buyer.
+
+**5. Game Warden / ATO Readiness (Already Covered)**
+
+The product inherits ATO through Game Warden. The contractor doesn't need to pursue a standalone ATO — Game Warden handles certification. The contractor just needs to show the government buyer that the product is deployed on a Game Warden-accredited platform.
+
+**6. Transition / Exit Plan**
+
+Government contracts require a plan for what happens when the contract ends. Since the contractor will be the operator:
+
+- All source code, IaC, and documentation delivered at each milestone
+- Operator training ensures the contractor's team can manage without VV
+- The 15% retainer is optional after the 6-month engagement — the contractor can self-operate
+- If the government eventually takes over operations, the contractor can hand off the same deliverables VV provided
+- **Deliverable:** Transition Plan document delivered at MS3 (Red), covering handoff procedures, admin credentials, runbook, and escalation contacts.
+
+**7. Key Personnel**
+
+Defense contractor clients (and their government buyers) often want assurance that specific people will be on the project.
+
+- Designate VV's lead operator as key personnel for the engagement
+- If the lead is unavailable for >2 weeks, VV provides written notice and a qualified replacement
+- This is a contract clause, not a product feature — include it in the terms.
+
+### What the Contractor Handles (Not VV's Responsibility)
+
+| Item | Why It's the Contractor's Problem |
+|---|---|
+| SAM.gov registration + CAGE code + UEI | Required to receive government payments. Contractor already has these or needs to obtain them. |
+| NAICS code selection | Determines contract set-aside eligibility. Likely 541512 (Computer Systems Design) or 541519 (Other Computer Related Services). |
+| Contract vehicle | GSA Schedule, OTA, SBIR, sole-source, etc. Contractor decides based on their relationship with the gov buyer. |
+| FAR/DFARS compliance | Applies to the contractor's gov contract, not to VV's commercial engagement. |
+| CDRLs | Contractor maps VV milestone deliverables to their gov contract's CDRL requirements. VV deliverables are designed to be CDRL-compatible. |
+| Insurance (cyber liability, E&O, GL) | Contractor carries this for the gov contract. VV should carry standard business insurance for the commercial engagement. |
+| Small business status / set-asides | If the contractor is SDVOSB, 8(a), HUBZone, etc., that's their competitive advantage for the gov sale. |
+
+*Conversation tip:* "We build the product to be government-ready — 508, SBOM, CMMC, Game Warden ATO. You handle the contracting side with the government buyer. Our deliverables are designed to drop directly into your CDRLs."
+
+### VV Deliverables Mapped to Gov Sale Requirements
+
+| VV Deliverable | Delivered At | Gov Sale Requirement It Satisfies |
+|---|---|---|
+| IP Rights Summary | MS1 | DFARS data rights disclosure |
+| Section 508 / VPAT | MS1 | Section 508 conformance |
+| SBOM | Each milestone | EO 14028 / NIST SSDF supply chain transparency |
+| SSP + POA&M | MS2, MS3 | CMMC / NIST 800-171 compliance documentation |
+| Operator Training + Docs | MS1 | Transition/sustainment planning |
+| Transition Plan | MS3 | Contract closeout / government takeover planning |
+| Container Images + Helm Charts | Each milestone | Deployable product artifact |
+| Source Code + IaC | Each milestone | Unlimited rights deliverable |
+
+---
+
+## 9. Conversation Playbook
 
 ### Conversation 1: Problem & Vision (Non-Technical Decision Maker)
 - Lead with pain: broken Excel, 10+ flows, single-operator risk, no classified path
@@ -423,7 +530,7 @@ Containers are not patched in place like traditional servers. They follow a **re
 
 ---
 
-## 9. Quick Reference — Tools & What They Do
+## 10. Quick Reference — Tools & What They Do
 
 | Tool | What It Is | Cost | Setup Complexity |
 |---|---|---|---|
