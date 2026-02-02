@@ -210,7 +210,106 @@ The retainer kicks in when infrastructure is running and VV shifts from build mo
 
 ---
 
-## 6. Conversation Playbook
+## 6. Risk Assessment & Mitigation — Full Detail
+
+### Risk Matrix
+
+| # | Risk | Likelihood | Impact | Severity | Milestone Affected |
+|---|---|---|---|---|---|
+| R1 | Game Warden onboarding delays | Medium | High | **High** | MS2 (Yellow) |
+| R2 | Classified network access delays | Medium | High | **High** | MS2, MS3 |
+| R3 | Iron Bank submission rejected/delayed | Medium | Medium | **Medium** | MS2 (Yellow) |
+| R4 | CVE count exceeds remediation budget | Medium | Medium | **Medium** | MS2 (Yellow) |
+| R5 | Power BI unavailable on classified | Low | Medium | **Medium** | MS2, MS3 |
+| R6 | User adoption resistance | Low | Medium | **Medium** | MS1 (Black) |
+| R7 | Single-vendor dependency on VV | Low | Medium | **Medium** | All |
+| R8 | Scope creep across milestones | Medium | Medium | **Medium** | All |
+| R9 | AWS Diode cross-domain issues | Low | High | **Medium** | MS3 (Red) |
+| R10 | Compliance assessment exceeds budget | Medium | Low | **Low** | MS3 (Red) |
+
+### Detailed Risk Analysis
+
+**R1: Game Warden Onboarding Delays — HIGH**
+- *What happens:* Second Front Systems onboarding takes longer than expected. Yellow milestone slides.
+- *Why it's likely:* Game Warden onboarding depends on a third party (Second Front). Scheduling, account provisioning, and pipeline setup are outside VV's direct control.
+- *Mitigation:* Begin Game Warden coordination during Black (Month 1), not at Yellow kickoff. Build system to CMMC/NIST standards from day one so container images are ready when the pipeline is. Use pre-approved container patterns that pass scanning faster.
+- *Budget impact:* If delayed 2-4 weeks, no additional cost — just schedule shift. If delayed >1 month, may need to extend Yellow timeline and accrue extra infra costs (~$3.5K-$9.5K/mo).
+- *Conversation tip:* "We start Game Warden coordination on day one, not when we need it. By the time Black MVP is done, we're already in the pipeline."
+
+**R2: Classified Network Access Delays — HIGH**
+- *What happens:* Getting developer access to SIPRNet or JWICS takes longer than planned. Can't test or deploy on classified.
+- *Why it's likely:* Access to classified networks involves security briefings, account provisioning, and physical facility scheduling — all bureaucratic processes.
+- *Mitigation:* Begin access coordination at contract award. Build 2-week buffer into each classified milestone. All development and testing that can happen on unclassified happens first.
+- *Budget impact:* Delay doesn't add development cost, but extends the timeline and accrues infra costs for tiers already running.
+- *Conversation tip:* "We need the org to start access requests immediately at signing. The development can proceed in parallel, but testing on classified requires access."
+
+**R3: Iron Bank Submission Rejected or Delayed — MEDIUM**
+- *What happens:* n8n container image fails Iron Bank review. Requires additional remediation cycles.
+- *Why it's likely:* n8n is not currently in Iron Bank. Submission requires Dockerfile hardening, CVE resolution, and documentation. First-time submissions sometimes require multiple rounds.
+- *Mitigation:* Prepare hardened n8n image during Black phase. If formal Iron Bank submission is rejected, deploy with equivalent STIG hardening under an organizational waiver. PostgreSQL and NGINX are already in Iron Bank — only n8n is at risk.
+- *Budget impact:* If org accepts waiver path, saves $3K-$5K (Iron Bank submission line item). If additional remediation rounds needed, could add $2K-$3K.
+- *Conversation tip:* "Two of three components are already in Iron Bank. n8n is the only submission. If it gets delayed, we can deploy with equivalent hardening under waiver."
+
+**R4: CVE Count in n8n Dependencies Exceeds Budget — MEDIUM**
+- *What happens:* Anchore scanning reveals more critical/high CVEs than expected in n8n's Node.js dependency tree. Remediation takes longer and costs more.
+- *Why it's likely:* Node.js ecosystems have deep dependency trees. CVE counts vary month to month.
+- *Mitigation:* Budget acceptance criteria remediation at upper range ($6K). Pin stable dependency versions before submission. Monitor CVE feeds during Black phase to anticipate issues.
+- *Budget impact:* Worst case adds $2K-$4K above the budgeted range if CVE remediation requires upstream patches or dependency replacements.
+- *Conversation tip:* "We monitor the CVE landscape during Black so there are no surprises at submission. We budget the upper range for remediation to absorb this."
+
+**R5: Power BI Unavailable on Classified Network — MEDIUM**
+- *What happens:* Power BI licensing or connectivity isn't available on SIPRNet or JWICS. Client loses existing dashboard investment.
+- *Why it's likely:* Low — most classified orgs have some Power BI access. But availability varies by network and org.
+- *Mitigation:* Metabase (open-source) is included as a drop-in fallback. Both dashboard paths are tested during Black. If Power BI works, use it. If not, Metabase is ready.
+- *Budget impact:* Already budgeted in MS1 dashboard setup ($3K-$5K covers both paths).
+- *Conversation tip:* "We build both options during Black. Zero additional cost to switch."
+
+**R6: User Adoption Resistance — MEDIUM**
+- *What happens:* End users are comfortable with existing Forms/Excel workflow and resist the new system.
+- *Why it's likely:* Low — the new system uses similar form-based UX. But change management is always a factor.
+- *Mitigation:* Familiar form-based interface (not a radical UX change). Existing Power BI dashboards preserved where possible. Operator training and documentation included in MS1. March event UAT with ~15 users provides early feedback loop.
+- *Budget impact:* None — training and UAT are already budgeted.
+- *Conversation tip:* "The March event is our adoption test. 15 real users, real data. We iterate based on their feedback before going classified."
+
+**R7: Single-Vendor Dependency on VV — MEDIUM**
+- *What happens:* Client is concerned about depending on VV long-term for a critical system.
+- *Why it's likely:* Low — legitimate concern for any vendor engagement.
+- *Mitigation:* All source code, infrastructure-as-code (Docker Compose, Helm charts), documentation, and operator training are delivered at each milestone. The client can operate the system independently after any milestone gate. The 15% retainer is for convenience, not dependency.
+- *Budget impact:* None.
+- *Conversation tip:* "Every milestone delivers everything — code, docs, training. You could walk away after Black with a fully operational system and never call us again. The retainer is there so you don't have to."
+
+**R8: Scope Creep Across Milestones — MEDIUM**
+- *What happens:* Client requests additional features, workflows, or integrations beyond the original scope during the 6-month engagement.
+- *Why it's likely:* Medium — common in any development engagement, especially after seeing a working MVP.
+- *Mitigation:* Each milestone has defined deliverables and acceptance criteria. Scope changes during Months 1-2 are handled within the $35K VV fee if minor. After Month 3, change requests route through the retainer relationship. Major scope changes require a separate SOW.
+- *Budget impact:* Minor changes absorbed. Major changes ($5K+) require amendment.
+- *Conversation tip:* "The milestone gates exist for exactly this. We define what 'done' looks like upfront. New ideas after MVP go through the retainer."
+
+**R9: AWS Diode Cross-Domain Transfer Issues — MEDIUM**
+- *What happens:* Cross-domain transfer from Secret to TS via AWS Diode fails or requires unexpected configuration.
+- *Why it's likely:* Low — but AWS Diode is specialized infrastructure. Few teams have deep experience.
+- *Mitigation:* Engage AWS Solutions Architect early (during Yellow phase). Validate image transfer in staging before production promotion. Budget AWS Diode line item at upper range ($10K).
+- *Budget impact:* If issues arise, could add $3K-$5K in additional engineering time.
+- *Conversation tip:* "We bring in an AWS SA during Yellow to prep the Diode path. By the time we're at Red, the cross-domain pipeline is already validated."
+
+**R10: External Compliance Assessment Exceeds Budget — LOW**
+- *What happens:* The organization's compliance team or external assessors require more extensive review than anticipated during Red milestone.
+- *Why it's likely:* Medium likelihood but low impact — the widest cost range ($5K-$15K) already accounts for this.
+- *Mitigation:* Clarify at contract award whether the org will use internal or external assessors. Scope compliance support hours accordingly. Game Warden's inherited ATO significantly reduces the assessment surface.
+- *Budget impact:* Already captured in the $5K-$15K range. Clarifying early keeps it at the lower end.
+- *Conversation tip:* "One question we need answered at signing: internal or external compliance review? That's the biggest variable in the Red tier budget."
+
+### Risk Summary by Milestone
+
+| Milestone | Key Risks | Biggest Concern |
+|---|---|---|
+| **MS1: Black** | R6 (adoption), R8 (scope creep) | Low overall risk. Controlled environment, small user group. |
+| **MS2: Yellow** | R1 (Game Warden), R2 (access), R3 (Iron Bank), R4 (CVEs) | **Highest risk milestone.** Third-party dependencies (Game Warden, Iron Bank) and classified access coordination. |
+| **MS3: Red** | R2 (access), R9 (Diode), R10 (compliance) | Moderate risk. Most unknowns are TS-program-specific. Budget upper ranges to absorb. |
+
+---
+
+## 7. Conversation Playbook
 
 ### Conversation 1: Problem & Vision (Non-Technical Decision Maker)
 - Lead with pain: broken Excel, 10+ flows, single-operator risk, no classified path

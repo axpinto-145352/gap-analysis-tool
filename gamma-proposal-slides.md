@@ -264,16 +264,20 @@ The retainer covers: ongoing advisory, maintenance coordination, escalation supp
 
 ---
 
-## Slide 19: Risk Mitigation
+## Slide 19: Risk Assessment & Mitigation
 
-| Risk | Mitigation |
-|---|---|
-| Game Warden delays | Built to CMMC/NIST from day one; pre-approved container patterns |
-| Power BI unavailable on target net | Metabase (open-source) fallback included |
-| AI features unavailable on high side | Template-based reports work without AI; AI is a future add-on |
-| User adoption resistance | Familiar form-based UX; existing Power BI preserved where possible |
-| Network restrictions | Fully self-contained; zero external API calls |
-| Scope creep | Milestone gates with defined deliverables; proceed or conclude at each |
+| # | Risk | Likelihood | Impact | Severity | Mitigation |
+|---|---|---|---|---|---|
+| R1 | Game Warden onboarding delays | Medium | High | **High** | Built to CMMC/NIST from day one; pre-approved container patterns. Parallel prep during Black so Yellow isn't blocked. |
+| R2 | Classified network access delays (SIPRNet/JWICS) | Medium | High | **High** | Begin access coordination at contract award — not at milestone start. Build in 2-week buffer per classified milestone. |
+| R3 | n8n Iron Bank submission rejected or delayed | Medium | Medium | **Medium** | Prepare hardened image during Black. If rejected, deploy with equivalent STIG hardening outside Iron Bank under org waiver. |
+| R4 | CVE count in n8n dependency tree exceeds budget | Medium | Medium | **Medium** | Scope remediation budget at upper range ($6K). Pin stable dependency versions. Monitor CVE feeds pre-submission. |
+| R5 | Power BI unavailable on classified network | Low | Medium | **Medium** | Metabase (open-source) included as drop-in fallback. Both options built during Black MVP. |
+| R6 | User adoption resistance | Low | Medium | **Medium** | Familiar form-based UX. Existing Power BI dashboards preserved where possible. Training included in MS1 deliverables. |
+| R7 | Single-vendor dependency on VV | Low | Medium | **Medium** | All code, docs, and infra-as-code delivered at each milestone. Client can operate independently after handoff. |
+| R8 | Scope creep across milestones | Medium | Medium | **Medium** | Milestone gates with defined deliverables and acceptance criteria. Change requests handled via retainer after Month 3. |
+| R9 | AWS Diode cross-domain transfer issues (Red) | Low | High | **Medium** | Engage AWS SA early. Validate image transfer in staging before production promotion. Budget upper range ($10K). |
+| R10 | External compliance assessment exceeds budget | Medium | Low | **Low** | Clarify internal vs. external assessment at contract award. Scope compliance support hours accordingly ($5K-$15K range). |
 
 ---
 
