@@ -208,7 +208,7 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 | Item | Cost |
 |---|---|
-| **VV Development & Engineering Fee** | **$35,000** (flat — full 6-month engagement) |
+| **VV Development & Engineering Fee** | **$60,000** (flat — full 6-month engagement) |
 | **VV Retainer (15%)** | **15% of monthly infrastructure costs, beginning Month 3** |
 
 ---
@@ -233,12 +233,12 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 | Category | Low Estimate | High Estimate | % of Total |
 |---|---|---|---|
-| Tool development (all 3 milestones) | $73,000 | $133,000 | ~30% |
-| Infrastructure (Year 1) | $116,560 | $250,240 | ~50% |
-| VV development fee | $35,000 | $35,000 | ~10% |
-| VV retainer (15%, Months 3-12) | $20,450 | $43,160 | ~10% |
-| **Total Year 1** | **$245,010** | **$461,400** | |
-| **Midpoint Estimate** | | **~$353,000** | |
+| Tool development (all 3 milestones) | $73,000 | $133,000 | ~28% |
+| Infrastructure (Year 1) | $116,560 | $250,240 | ~47% |
+| VV development fee | $60,000 | $60,000 | ~14% |
+| VV retainer (15%, Months 3-12) | $20,450 | $43,160 | ~11% |
+| **Total Year 1** | **$270,010** | **$486,400** | |
+| **Midpoint Estimate** | | **~$378,000** | |
 
 ---
 
@@ -246,17 +246,17 @@ Zero external API calls on classified. All processing stays inside the boundary.
 
 | Milestone | Trigger | Tool Dev Payment | VV Fee Payment |
 |---|---|---|---|
-| Contract Award | Signed | 20% of tool dev | 30% of $35K = **$10,500** |
-| MS1: Black MVP Accepted | March event UAT | 30% of tool dev | 25% of $35K = **$8,750** |
-| MS2: Yellow Operational | SIPRNet deployment | 30% of tool dev | 20% of $35K = **$7,000** |
-| MS3: Red Operational | JWICS acceptance | 20% of tool dev | 25% of $35K = **$8,750** |
+| Contract Award | Signed | 20% of tool dev | 30% of $60K = **$18,000** |
+| MS1: Black MVP Accepted | March event UAT | 30% of tool dev | 25% of $60K = **$15,000** |
+| MS2: Yellow Operational | SIPRNet deployment | 30% of tool dev | 20% of $60K = **$12,000** |
+| MS3: Red Operational | JWICS acceptance | 20% of tool dev | 25% of $60K = **$15,000** |
 | VV Retainer | Monthly, starting Month 3 | — | 15% of that month's infra costs |
 
 ---
 
 ## Slide 19: VV Retainer — What It Covers
 
-**Months 1-2:** Development phase. VV $35K fee covers all engineering, PM, and training.
+**Months 1-2:** Development phase. VV $60K fee covers all engineering, PM, and training.
 
 **Month 3 onward:** 15% retainer on monthly infrastructure costs.
 

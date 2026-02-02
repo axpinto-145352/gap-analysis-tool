@@ -56,16 +56,16 @@ VV's lead operator holds an active TS/SCI clearance but is not currently sponsor
 |---|---|
 | Tool development (all 3 milestones) | $73,000 - $133,000 |
 | Infrastructure (Year 1) | $116,560 - $250,240 |
-| VV development fee (flat) | $35,000 |
+| VV development fee (flat) | $60,000 |
 | VV retainer (15%, Months 3-12) | $20,450 - $43,160 |
-| **Year 1 Total** | **$245,010 - $461,400** |
-| **Midpoint** | **~$353,000** |
+| **Year 1 Total** | **$270,010 - $486,400** |
+| **Midpoint** | **~$378,000** |
 
 ---
 
 ## 3. Veteran Vectors Revenue Breakdown
 
-### Development Fee — $35,000 (Flat)
+### Development Fee — $60,000 (Flat)
 
 This is your full 6-month engagement fee. It covers:
 
@@ -76,9 +76,9 @@ This is your full 6-month engagement fee. It covers:
 - Operator training and system documentation
 - Project management across all 3 milestones
 
-**When it's paid:** Spread across all 4 milestones — 30% at contract award ($10,500), 25% at Black MVP acceptance ($8,750), 20% at Yellow operational ($7,000), 25% at Red operational ($8,750). This keeps VV revenue flowing with each deliverable.
+**When it's paid:** Spread across all 4 milestones — 30% at contract award ($18,000), 25% at Black MVP acceptance ($15,000), 20% at Yellow operational ($12,000), 25% at Red operational ($15,000). This keeps VV revenue flowing with each deliverable.
 
-**How to position:** "This is our engineering and project management fee for the full 6-month build. It covers architecture through operational acceptance at every classification level."
+**How to position:** "This is our engineering and project management fee for the full 6-month build. It covers architecture, development, testing, training, and operational acceptance across all three classification levels."
 
 ### Retainer — 15% of Monthly Infrastructure, Starting Month 3
 
@@ -241,37 +241,37 @@ Containers are not patched in place like traditional servers. They follow a **re
 | Item | Low | High |
 |---|---|---|
 | 20% of tool development | $14,600 | $26,600 |
-| VV fee — 30% ($10,500) | $10,500 | $10,500 |
-| **Total upfront** | **$25,100** | **$37,100** |
+| VV fee — 30% ($18,000) | $18,000 | $18,000 |
+| **Total upfront** | **$32,600** | **$44,600** |
 
 ### Month 2 (MS1: Black MVP Accepted)
 
 | Item | Low | High |
 |---|---|---|
 | 30% of tool development | $21,900 | $39,900 |
-| VV fee — 25% ($8,750) | $8,750 | $8,750 |
+| VV fee — 25% ($15,000) | $15,000 | $15,000 |
 | Black infra (2 months accrued) | $260 | $540 |
-| **Total at MS1** | **~$30,910** | **~$49,190** |
+| **Total at MS1** | **~$37,160** | **~$55,440** |
 
 ### Month 4 (MS2: Yellow Operational)
 
 | Item | Low | High |
 |---|---|---|
 | 30% of tool development | $21,900 | $39,900 |
-| VV fee — 20% ($7,000) | $7,000 | $7,000 |
+| VV fee — 20% ($12,000) | $12,000 | $12,000 |
 | Yellow infra (2 months accrued) | $7,000 | $19,000 |
 | VV retainer (Months 3-4) | $1,090 | $2,932 |
-| **Total at MS2** | **~$36,990** | **~$68,832** |
+| **Total at MS2** | **~$41,990** | **~$73,832** |
 
 ### Month 6 (MS3: Red Operational)
 
 | Item | Low | High |
 |---|---|---|
 | 20% of tool development | $14,600 | $26,600 |
-| VV fee — 25% ($8,750) | $8,750 | $8,750 |
+| VV fee — 25% ($15,000) | $15,000 | $15,000 |
 | Red infra (2 months accrued) | $20,000 | $38,000 |
 | VV retainer (Months 5-6) | $4,090 | $8,632 |
-| **Total at MS3** | **~$47,440** | **~$81,982** |
+| **Total at MS3** | **~$53,690** | **~$88,232** |
 
 ### Months 7-12 (Post-Engagement, Ongoing)
 
@@ -355,7 +355,7 @@ Containers are not patched in place like traditional servers. They follow a **re
 **R8: Scope Creep Across Milestones — MEDIUM**
 - *What happens:* Client requests additional features, workflows, or integrations beyond the original scope during the 6-month engagement.
 - *Why it's likely:* Medium — common in any development engagement, especially after seeing a working MVP.
-- *Mitigation:* Each milestone has defined deliverables and acceptance criteria. Scope changes during Months 1-2 are handled within the $35K VV fee if minor. After Month 3, change requests route through the retainer relationship. Major scope changes require a separate SOW.
+- *Mitigation:* Each milestone has defined deliverables and acceptance criteria. Scope changes during Months 1-2 are handled within the $60K VV fee if minor. After Month 3, change requests route through the retainer relationship. Major scope changes require a separate SOW.
 - *Budget impact:* Minor changes absorbed. Major changes ($5K+) require amendment.
 - *Conversation tip:* "The milestone gates exist for exactly this. We define what 'done' looks like upfront. New ideas after MVP go through the retainer."
 
@@ -506,10 +506,10 @@ Defense contractor clients (and their government buyers) often want assurance th
 
 ### Conversation 3: Integrated Pricing (Budget Authority)
 - Present the single-contract milestone structure
-- Lead with the upfront: 30% of VV fee ($10,500) + 20% of tool dev — manageable first check
-- Upfront outlay is ~$25K-$37K. That's the "first check."
+- Lead with the upfront: 30% of VV fee ($18,000) + 20% of tool dev — manageable first check
+- Upfront outlay is ~$33K-$45K. That's the "first check."
 - Infrastructure is the big number but it's **monthly and scales with deployment**
-- **Key line:** "The upfront is ~$25K-$37K. After that, costs are milestone-gated — you only pay for tiers you deploy."
+- **Key line:** "The upfront is ~$33K-$45K. After that, costs are milestone-gated — you only pay for tiers you deploy."
 
 ### Conversation 4: Game Warden Deep Dive (If Classified Is the Goal)
 - ATO inheritance: weeks vs. 6-18 months
@@ -522,11 +522,11 @@ Defense contractor clients (and their government buyers) often want assurance th
 
 | Objection | Response |
 |---|---|
-| "That's a lot of money." | "The infrastructure costs are Game Warden + AWS — that's the price of classified deployment. The alternative is $200K-$500K for standalone ATO. Our VV fee is $35K for a 6-month build across 3 classification levels." |
-| "Can we just do Black?" | "Yes. Through Black MVP acceptance you're looking at ~$56K-$86K total (upfront + MS1). You get a working system, prove it out at the March event, and decide from there. The contract has milestone gates for exactly this." |
+| "That's a lot of money." | "The infrastructure costs are Game Warden + AWS — that's the price of classified deployment. The alternative is $200K-$500K for standalone ATO. Our VV fee is $60K for a 6-month build across 3 classification levels — that's the architecture, engineering, testing, and PM for the entire engagement." |
+| "Can we just do Black?" | "Yes. Through Black MVP acceptance you're looking at ~$70K-$100K total (upfront + MS1). You get a working system, prove it out at the March event, and decide from there. The contract has milestone gates for exactly this." |
 | "Why not fix Power Automate?" | "Power Automate can't deploy to classified networks. It has no Game Warden pathway. And you'd still have 10+ siloed flows and broken Excel connections." |
 | "What's the retainer for?" | "Once we build it, you need someone who knows the system for maintenance, troubleshooting, and future enhancements. The 15% retainer starting Month 3 ensures priority support without re-onboarding." |
-| "Can the retainer start later?" | "It starts Month 3 — when Yellow infra is live and there's actual infrastructure to support. During Months 1-2, the $35K dev fee covers everything." |
+| "Can the retainer start later?" | "It starts Month 3 — when Yellow infra is live and there's actual infrastructure to support. During Months 1-2, the $60K dev fee covers everything." |
 
 ---
 
