@@ -6,6 +6,33 @@
 
 ---
 
+## Who You're Working With
+
+### Anthony Pinto — Founder, Veteran Vectors
+
+**Active TS/SCI clearance** | 9 years as Navy Submarine Officer | U.S. Naval Academy, Class of 2014
+
+After nine years operating nuclear submarines — Norfolk, Japan, Washington DC — Anthony transitioned to defense contracting and founded Veteran Vectors. The submarine service instills a zero-defect culture: complex systems, rigorous procedures, and accountability at every level. That discipline translates directly into building automation systems for classified environments.
+
+**Why this matters for your project:**
+- TS/SCI cleared — can discuss classified deployment requirements directly
+- Understands DoD acquisition, Game Warden, and classified network operations from the operator perspective
+- Engineering mindset from nuclear training — methodical, documented, tested
+
+### Veteran Vectors — Proven Results
+
+| Metric | Result |
+|---|---|
+| **Hours saved** | 150+ hours/month returned to clients |
+| **ROI delivered** | $100K+ in revenue or efficiency gains |
+| **Time reduction** | >90% average on automated workflows |
+
+**Client range:** Solo entrepreneurs to 8-figure defense suppliers
+
+This isn't a consulting firm that delivers slide decks. We build working systems, transfer ownership, and support them for the long term.
+
+---
+
 ## The Opportunity
 
 Your current gap analysis system relies on Microsoft Excel, Power Automate, and manual processes. It works — but it's fragile, dependent on one person, and cannot deploy to classified networks.
@@ -164,11 +191,11 @@ You handle the government contracting relationship. We build a product that's re
 
 ## Why Veteran Vectors
 
-- TS/SCI cleared operator leading the engagement
-- Experience with Game Warden deployment pipeline
-- Open-source stack with no vendor lock-in
-- You own everything — code, containers, documentation
-- Fixed fee with milestone payments — no surprise costs
+- **Cleared and qualified** — TS/SCI cleared founder with 9 years submarine officer experience and Naval Academy engineering background
+- **Proven track record** — 150+ hours/month saved for clients, $100K+ in documented ROI, >90% time reduction on automated workflows
+- **Defense-ready** — Experience with Game Warden deployment pipeline and classified network operations
+- **No vendor lock-in** — Open-source stack, you own everything (code, containers, documentation)
+- **Predictable costs** — Fixed $60K fee with milestone payments, no surprise costs
 
 ---
 
@@ -185,6 +212,7 @@ You handle the government contracting relationship. We build a product that's re
 ## Contact
 
 **Veteran Vectors**
+Anthony Pinto, Founder
 
 *One contract. Three milestones. Classified deployment in six months.*
 

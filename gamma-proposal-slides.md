@@ -13,7 +13,48 @@ Containerized Survey-to-Insight Pipeline with Classified Deployment Path
 
 ---
 
-## Slide 2: Current State — Technical Debt
+## Slide 2: Who You're Working With
+
+### Anthony Pinto — Founder, Veteran Vectors
+
+| | |
+|---|---|
+| **Clearance** | Active TS/SCI |
+| **Background** | 9 years as Navy Submarine Officer |
+| **Education** | U.S. Naval Academy, Class of 2014 |
+| **Stationed** | Norfolk, Japan, Washington DC |
+| **Current** | Defense contractor + Veteran Vectors founder |
+
+**Why this matters for your project:**
+- TS/SCI cleared — can support classified deployment discussions directly
+- Submarine nuclear engineering background — complex systems, zero margin for error, rigorous process discipline
+- Understands DoD acquisition, classified networks, and the Game Warden pathway from operator experience
+
+---
+
+## Slide 3: Veteran Vectors — Proven Results
+
+**Mission:** Eliminate time-consuming manual processes through AI workflow automation
+
+### Track Record
+
+| Metric | Result |
+|---|---|
+| **Hours saved** | 150+ hours/month gained back for clients |
+| **ROI delivered** | $100K+ in revenue or efficiency gains |
+| **Time reduction** | >90% average on automated workflows |
+
+**Client range:** Solo-entrepreneur bookkeepers to 8-figure lab equipment supply companies
+
+**Relevant experience:**
+- Workflow automation (n8n, Make, Power Automate replacement)
+- Database design and data pipeline engineering
+- Containerized deployments for regulated environments
+- Defense contractor operations and compliance
+
+---
+
+## Slide 4: Current State — Technical Debt
 
 **Existing Architecture:**
 ```
@@ -30,7 +71,7 @@ Microsoft Forms → Excel → Power Automate (10+ flows) → Power BI → Manual
 
 ---
 
-## Slide 3: Proposed Architecture
+## Slide 5: Proposed Architecture
 
 **Target Stack:**
 ```
@@ -49,7 +90,7 @@ n8n (workflow engine) → PostgreSQL 16 → NGINX (reverse proxy) → Power BI/M
 
 ---
 
-## Slide 4: Delivery Model — Container Images, Not SaaS
+## Slide 6: Delivery Model — Container Images, Not SaaS
 
 **What you receive:**
 - Docker Compose files (Black tier)
@@ -67,7 +108,7 @@ n8n (workflow engine) → PostgreSQL 16 → NGINX (reverse proxy) → Power BI/M
 
 ---
 
-## Slide 5: Technology Stack — Component Detail
+## Slide 7: Technology Stack — Component Detail
 
 | Component | Tool | Version | License | Iron Bank Status |
 |---|---|---|---|---|
@@ -82,7 +123,7 @@ n8n (workflow engine) → PostgreSQL 16 → NGINX (reverse proxy) → Power BI/M
 
 ---
 
-## Slide 6: Five Core Workflows — Functional Specification
+## Slide 8: Five Core Workflows — Functional Specification
 
 | # | Workflow | Trigger | Input | Output | Complexity |
 |---|---|---|---|---|---|
@@ -96,7 +137,7 @@ n8n (workflow engine) → PostgreSQL 16 → NGINX (reverse proxy) → Power BI/M
 
 ---
 
-## Slide 7: Game Warden — Platform Architecture
+## Slide 9: Game Warden — Platform Architecture
 
 **What Game Warden provides:**
 - DoD-accredited PaaS on AWS GovCloud (IL2-IL6) and AWS Secret/TS regions
@@ -115,7 +156,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 8: Classification Tiers — Impact Levels
+## Slide 10: Classification Tiers — Impact Levels
 
 | Tier | Impact Level | Network | Hosting | ATO Path |
 |---|---|---|---|---|
@@ -127,7 +168,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 9: Engagement Structure — Milestones
+## Slide 11: Engagement Structure — Milestones
 
 **6-Month Timeline:**
 
@@ -141,7 +182,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 10: Milestone 1 — Black MVP (Months 1-2)
+## Slide 12: Milestone 1 — Black MVP (Months 1-2)
 
 **Technical Deliverables:**
 - n8n + PostgreSQL 16 + NGINX in Docker Compose
@@ -159,7 +200,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 11: Milestone 2 — Yellow / Secret (Months 2-4)
+## Slide 13: Milestone 2 — Yellow / Secret (Months 2-4)
 
 **Technical Deliverables:**
 - Helm chart conversion (Deployment, Service, PVC, ConfigMap, Secret)
@@ -177,7 +218,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 12: Milestone 3 — Red / TS/SCI (Months 4-6)
+## Slide 14: Milestone 3 — Red / TS/SCI (Months 4-6)
 
 **Technical Deliverables:**
 - AWS Diode cross-domain transfer configuration
@@ -194,7 +235,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 13: Classified Testing Model
+## Slide 15: Classified Testing Model
 
 **Challenge:** VV operator holds TS/SCI but is not currently sponsored under client's FCL.
 
@@ -211,7 +252,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 14: Security & Compliance Architecture
+## Slide 16: Security & Compliance Architecture
 
 | Control Family | Implementation |
 |---|---|
@@ -226,7 +267,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 15: Pricing — Tool Development
+## Slide 17: Pricing — Tool Development
 
 ### One-Time Development Costs
 
@@ -242,11 +283,11 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 | Item | Amount |
 |---|---|
 | **VV Development Fee** | **$60,000** (flat, 6-month engagement) |
-| **VV Monthly Retainer** | **Option A or B** (see Slide 19) |
+| **VV Monthly Retainer** | **Option A or B** (see Slide 21) |
 
 ---
 
-## Slide 16: Pricing — Infrastructure
+## Slide 18: Pricing — Infrastructure
 
 | Tier | Monthly Cost | Components |
 |---|---|---|
@@ -265,7 +306,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 17: Total Investment — Year 1
+## Slide 19: Total Investment — Year 1
 
 | Category | Low | High |
 |---|---|---|
@@ -275,7 +316,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 | VV Retainer (10 months)* | $12,000 | $43,160 |
 | **Total Year 1** | **$261,560** | **$486,400** |
 
-*Retainer range reflects Option A (15% of infra) vs Option B (hourly). See Slide 19.
+*Retainer range reflects Option A (15% of infra) vs Option B (hourly). See Slide 21.
 
 **Midpoint estimate:** ~$374,000
 
@@ -283,7 +324,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 18: Payment Schedule
+## Slide 20: Payment Schedule
 
 | Event | Trigger | Tool Dev | VV Fee |
 |---|---|---|---|
@@ -292,13 +333,13 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 | MS2 Operational | SIPRNet live | 30% ($21.9K-$39.9K) | 20% = **$12,000** |
 | MS3 Operational | JWICS live | 20% ($14.6K-$26.6K) | 25% = **$15,000** |
 
-**Retainer:** Option A or B, starting Month 3 (see Slide 19)
+**Retainer:** Option A or B, starting Month 3 (see Slide 21)
 
 **Infrastructure:** Billed monthly by AWS/Game Warden, pass-through to client
 
 ---
 
-## Slide 19: VV Retainer Options — Starting Month 3
+## Slide 21: VV Retainer Options — Starting Month 3
 
 ### Option A: Percentage of Infrastructure (Scales with Deployment)
 
@@ -332,7 +373,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 20: Government-Ready Product
+## Slide 22: Government-Ready Product
 
 **For downstream sale to government entity:**
 
@@ -349,7 +390,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 21: Risk Matrix
+## Slide 23: Risk Matrix
 
 | Risk | Severity | Mitigation |
 |---|---|---|
@@ -363,7 +404,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 22: Technical Dependencies & Assumptions
+## Slide 24: Technical Dependencies & Assumptions
 
 **Dependencies:**
 - Client provides AWS GovCloud account access (Black)
@@ -379,7 +420,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 
 ---
 
-## Slide 23: Timeline — Gantt View
+## Slide 25: Timeline — Gantt View
 
 ```
 Month:        1         2         3         4         5         6
@@ -396,7 +437,7 @@ Retainer:                         [=====Option A or B=====]
 
 ---
 
-## Slide 24: Next Steps
+## Slide 26: Next Steps
 
 1. **Contract execution** — Single 6-month engagement, milestone-gated payments
 2. **Week 1 onboarding** — Access to existing Power Automate flows, Excel data, Power BI
@@ -410,9 +451,10 @@ Retainer:                         [=====Option A or B=====]
 
 ---
 
-## Slide 25: Contact
+## Slide 27: Contact
 
 **Veteran Vectors**
+Anthony Pinto, Founder
 
 *Single contract. Three milestones. Full classified deployment in 6 months.*
 
