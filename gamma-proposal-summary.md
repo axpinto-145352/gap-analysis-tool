@@ -69,7 +69,7 @@ Single contract with milestone gates. You approve each phase before proceeding.
 | Platform development | $73K - $133K |
 | Cloud infrastructure | $117K - $250K |
 | Veteran Vectors fee | $60K |
-| Ongoing support (10 months) | $7.5K |
+| Ongoing support (10 months) | $12K - $43K |
 
 **Where the money goes:**
 - ~30% builds the system
@@ -88,9 +88,9 @@ Payments align with milestones — you pay as we deliver.
 |---|---|---|
 | Contract signed | Kick-off | $33K - $45K |
 | Black MVP accepted | March event | $37K - $55K |
-| Yellow operational | SIPRNet live | $42K - $72K |
-| Red operational | JWICS live | $51K - $81K |
-| Monthly retainer | Month 3 onward | $750/month |
+| Yellow operational | SIPRNet live | $42K - $74K |
+| Red operational | JWICS live | $51K - $85K |
+| Monthly retainer | Month 3 onward | See options below |
 
 ---
 
@@ -108,11 +108,25 @@ You can stop at any milestone with a fully functional system at that classificat
 
 ---
 
-## Ongoing Support
+## Ongoing Support — Two Options
 
-**$750/month** starting Month 3 (15% of our $60K fee)
+Starting Month 3, choose the retainer structure that fits your operational model:
 
-What it covers:
+### Option A: Percentage of Infrastructure
+**15% of monthly infrastructure costs**
+
+- Scales with deployment: low when only unclassified is running, higher at full deployment
+- At full deployment (all three tiers): ~$2,000 - $4,300/month
+- Year 1 estimate: ~$17,500 - $37,500
+
+### Option B: Hourly with Minimum
+**$150/hour with 8-hour monthly minimum**
+
+- Predictable baseline: $1,200/month minimum
+- Additional hours billed at $150/hr as needed
+- Year 1 estimate: $12,000 minimum
+
+### What Both Options Cover
 - Security patch monitoring and container updates
 - Incident response and troubleshooting
 - Workflow modifications as your needs evolve

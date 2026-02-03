@@ -57,9 +57,9 @@ VV's lead operator holds an active TS/SCI clearance but is not currently sponsor
 | Tool development (all 3 milestones) | $73,000 - $133,000 |
 | Infrastructure (Year 1) | $116,560 - $250,240 |
 | VV development fee (flat) | $60,000 |
-| VV retainer (15% of VV fee, Months 3-12) | $7,500 |
-| **Year 1 Total** | **$257,060 - $450,740** |
-| **Midpoint** | **~$354,000** |
+| VV retainer (Months 3-12) | $12,000 - $43,160 (see options) |
+| **Year 1 Total** | **$261,560 - $486,400** |
+| **Midpoint** | **~$374,000** |
 
 ---
 
@@ -80,13 +80,65 @@ This is your full 6-month engagement fee. It covers:
 
 **How to position:** "This is our engineering and project management fee for the full 6-month build. It covers architecture, development, testing, training, and operational acceptance across all three classification levels."
 
-### Retainer — 15% of VV Fee ($9,000/year), Starting Month 3
+### Retainer — Two Options, Starting Month 3
 
 The retainer kicks in when infrastructure is running and VV shifts from build mode to support mode. This is not a vague "advisory" fee — it covers concrete, recurring work.
 
-**Retainer calculation:** 15% × $60,000 = **$9,000/year** = **$750/month**
+**Client selects one of two options:**
 
-**Year 1 retainer (Months 3-12 = 10 months):** $7,500
+---
+
+#### OPTION A: Percentage of Monthly Infrastructure (15%)
+
+**Calculation:** 15% × monthly infrastructure costs
+
+| Deployment State | Monthly Infra (Low) | Monthly Infra (High) | VV Retainer (15%) |
+|---|---|---|---|
+| Black only (Months 3-4) | $130 | $270 | $20 - $41 |
+| Black + Yellow (Months 3-4) | $3,630 | $9,770 | $545 - $1,466 |
+| All three tiers (Months 5+) | $13,630 | $28,770 | $2,045 - $4,316 |
+
+**Year 1 estimate (Months 3-12):** ~$17,450 - $37,460
+
+**Pros:**
+- Aligns VV revenue with client's operational footprint
+- Low cost when only unclassified is running
+- Scales naturally with classified deployment
+
+**Cons:**
+- Variable monthly cost — harder to budget precisely
+- Higher cost at full deployment than Option B
+
+---
+
+#### OPTION B: Hourly with Monthly Minimum
+
+**Calculation:** $150/hour with 8-hour monthly minimum
+
+| Item | Amount |
+|---|---|
+| Hourly rate | $150/hr |
+| Monthly minimum | 8 hours = $1,200/mo |
+| Hours above minimum | Billed at $150/hr |
+
+**Year 1 estimate (Months 3-12 = 10 months):** $12,000 minimum (more if additional hours used)
+
+**Pros:**
+- Predictable baseline cost
+- Lower cost than Option A at full deployment
+- Flexibility to scale up support if needed
+
+**Cons:**
+- Minimum applies even if no support needed that month
+- Must track hours — less "all-inclusive" feel
+
+---
+
+**Recommendation:** Option A for clients who want predictable "all-in" support that scales with their deployment. Option B for clients who want a lower baseline and prefer to pay for actual hours used.
+
+---
+
+#### What Both Options Cover
 
 #### Container Lifecycle Management (the core of the retainer)
 
@@ -123,18 +175,11 @@ Containers are not patched in place like traditional servers. They follow a **re
 - **Compliance posture updates** — As CMMC/NIST requirements evolve, VV assesses impact and recommends adjustments.
 - **Scaling support** — For events like the May event (~150 users), VV load-tests and adjusts infrastructure/config as needed.
 
-**How to position:** "The $750/month retainer isn't an advisory fee — it's hands-on-keyboard work. We monitor every upstream release, rebuild your container images with patches, test them, and hand them off ready to deploy. You also get priority support for production issues, workflow changes, and planning for future capabilities. Without it, your team is responsible for tracking CVEs across three open-source projects and three classification levels."
+**How to position:** "The retainer isn't an advisory fee — it's hands-on-keyboard work. We monitor every upstream release, rebuild your container images with patches, test them, and hand them off ready to deploy. You also get priority support for production issues, workflow changes, and planning for future capabilities. Without it, your team is responsible for tracking CVEs across three open-source projects and three classification levels."
 
-**Month-by-month retainer:**
+**How to position (Option A):** "The 15% retainer scales with your deployment. When you're only running unclassified, it's minimal. When you're running all three tiers, the support workload is higher and the retainer reflects that."
 
-| Month | VV Retainer |
-|---|---|
-| 1-2 | — (covered by $60K dev fee) |
-| 3-12 | $750/month |
-
-**Year 1 retainer total (Months 3-12 = 10 months):** **$7,500**
-
-**How to position:** "Once we hand off each tier, the $750/month retainer ensures you have a dedicated team that knows this system. You're not re-onboarding a vendor every time something needs attention."
+**How to position (Option B):** "The $1,200/month minimum guarantees you have dedicated support. If we use more than 8 hours in a month, you pay for those hours. If not, the minimum ensures we're always available."
 
 ---
 
@@ -258,8 +303,8 @@ Containers are not patched in place like traditional servers. They follow a **re
 | 30% of tool development | $21,900 | $39,900 |
 | VV fee — 20% ($12,000) | $12,000 | $12,000 |
 | Yellow infra (2 months accrued) | $7,000 | $19,000 |
-| VV retainer (Months 3-4) | $1,500 | $1,500 |
-| **Total at MS2** | **~$42,400** | **~$72,400** |
+| VV retainer (Months 3-4) | $1,090 (A) / $2,400 (B) | $2,932 (A) / $2,400 (B) |
+| **Total at MS2** | **~$42,000 - $44,000** | **~$73,800 - $74,200** |
 
 ### Month 6 (MS3: Red Operational)
 
@@ -268,16 +313,18 @@ Containers are not patched in place like traditional servers. They follow a **re
 | 20% of tool development | $14,600 | $26,600 |
 | VV fee — 25% ($15,000) | $15,000 | $15,000 |
 | Red infra (2 months accrued) | $20,000 | $38,000 |
-| VV retainer (Months 5-6) | $1,500 | $1,500 |
-| **Total at MS3** | **~$51,100** | **~$81,100** |
+| VV retainer (Months 5-6) | $4,090 (A) / $2,400 (B) | $8,632 (A) / $2,400 (B) |
+| **Total at MS3** | **~$52,700 - $54,600** | **~$85,600 - $88,200** |
 
 ### Months 7-12 (Post-Engagement, Ongoing)
 
 | Item | Monthly Low | Monthly High |
 |---|---|---|
 | All infra running | $13,630 | $28,770 |
-| VV retainer | $750 | $750 |
-| **Monthly total** | **~$14,380** | **~$29,520** |
+| VV retainer (Option A) | $2,045 | $4,316 |
+| VV retainer (Option B) | $1,200 | $1,200+ |
+| **Monthly total (A)** | **~$15,675** | **~$33,086** |
+| **Monthly total (B)** | **~$14,830** | **~$29,970+** |
 
 ---
 
@@ -523,8 +570,9 @@ Defense contractor clients (and their government buyers) often want assurance th
 | "That's a lot of money." | "The infrastructure costs are Game Warden + AWS — that's the price of classified deployment. The alternative is $200K-$500K for standalone ATO. Our VV fee is $60K for a 6-month build across 3 classification levels — that's the architecture, engineering, testing, and PM for the entire engagement." |
 | "Can we just do Black?" | "Yes. Through Black MVP acceptance you're looking at ~$70K-$100K total (upfront + MS1). You get a working system, prove it out at the March event, and decide from there. The contract has milestone gates for exactly this." |
 | "Why not fix Power Automate?" | "Power Automate can't deploy to classified networks. It has no Game Warden pathway. And you'd still have 10+ siloed flows and broken Excel connections." |
-| "What's the retainer for?" | "Once we build it, you need someone who knows the system for maintenance, troubleshooting, and future enhancements. The $750/month retainer starting Month 3 ensures priority support without re-onboarding." |
+| "What's the retainer for?" | "Once we build it, you need someone who knows the system for maintenance, troubleshooting, and future enhancements. We offer two options: 15% of infrastructure costs (scales with deployment) or $1,200/month minimum with hourly billing above that." |
 | "Can the retainer start later?" | "It starts Month 3 — when classified infra is live and there's actual infrastructure to support. During Months 1-2, the $60K dev fee covers everything." |
+| "Which retainer option is better?" | "Option A (15% of infra) if you want all-inclusive support that scales naturally. Option B ($150/hr, 8hr minimum) if you want a lower baseline and prefer to pay for actual hours used." |
 
 ---
 

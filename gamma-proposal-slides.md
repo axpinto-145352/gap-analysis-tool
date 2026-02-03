@@ -222,7 +222,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 | **System & Communications Protection (SC)** | TLS 1.2+, encrypted volumes, network segmentation |
 | **System & Information Integrity (SI)** | ClamAV, Anchore CVE scanning, STIG baseline |
 
-**Frameworks:** CMMC Level 2, NIST 800-171, FedRAMP (via Game Warden), DISA STIGs
+**Frameworks:** CMMC Level 2, NIST 800-171, FedRAMP-authorized infrastructure (via Game Warden), DISA STIGs
 
 ---
 
@@ -242,7 +242,7 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 | Item | Amount |
 |---|---|
 | **VV Development Fee** | **$60,000** (flat, 6-month engagement) |
-| **VV Annual Retainer** | **$9,000/year** (15% of VV fee, starts Month 3) |
+| **VV Monthly Retainer** | **Option A or B** (see Slide 19) |
 
 ---
 
@@ -272,10 +272,12 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 | Tool Development | $73,000 | $133,000 |
 | Infrastructure | $116,560 | $250,240 |
 | VV Development Fee | $60,000 | $60,000 |
-| VV Retainer (10 months) | $7,500 | $7,500 |
-| **Total Year 1** | **$257,060** | **$450,740** |
+| VV Retainer (10 months)* | $12,000 | $43,160 |
+| **Total Year 1** | **$261,560** | **$486,400** |
 
-**Midpoint estimate:** ~$354,000
+*Retainer range reflects Option A (15% of infra) vs Option B (hourly). See Slide 19.
+
+**Midpoint estimate:** ~$374,000
 
 **Context:** Game Warden fees replace $200K-$500K standalone ATO cost and 6-18 months of calendar time.
 
@@ -290,31 +292,43 @@ git push → CI/CD → ClamAV scan → Anchore CVE scan → STIG check → Stage
 | MS2 Operational | SIPRNet live | 30% ($21.9K-$39.9K) | 20% = **$12,000** |
 | MS3 Operational | JWICS live | 20% ($14.6K-$26.6K) | 25% = **$15,000** |
 
-**Retainer:** $750/month starting Month 3 ($9,000/year = 15% of $60K VV fee)
+**Retainer:** Option A or B, starting Month 3 (see Slide 19)
 
 **Infrastructure:** Billed monthly by AWS/Game Warden, pass-through to client
 
 ---
 
-## Slide 19: VV Retainer Scope
+## Slide 19: VV Retainer Options — Starting Month 3
 
-**$9,000/year (15% of VV fee) — Starting Month 3**
+### Option A: Percentage of Infrastructure (Scales with Deployment)
 
-**Container Lifecycle Management:**
-- Monitor upstream CVEs (n8n, PostgreSQL, NGINX, Node.js, base images)
-- Rebuild images with patches, test on unclass, deliver for deployment
-- Critical CVEs: same-week rebuild | Minor patches: monthly batch
-- Support Game Warden pipeline promotion for classified tiers
+**15% of monthly infrastructure costs**
 
-**Operational Support:**
-- Incident triage and resolution
-- Workflow modifications (n8n JSON changes don't require container rebuild)
-- Database maintenance (backup verification, index tuning)
+| Deployment State | Monthly Infra | VV Retainer (15%) |
+|---|---|---|
+| Black only | $130 - $270 | $20 - $41 |
+| Black + Yellow | $3,630 - $9,770 | $545 - $1,466 |
+| All three tiers | $13,630 - $28,770 | $2,045 - $4,316 |
 
-**Advisory:**
-- Enhancement scoping (AI features, predictive analytics)
+**Year 1 estimate (Months 3-12):** ~$17,450 - $37,460
+
+### Option B: Hourly with Monthly Minimum
+
+**$150/hour with 8-hour monthly minimum**
+
+| Item | Amount |
+|---|---|
+| Monthly minimum | $1,200/mo |
+| Hours above minimum | $150/hr |
+| Year 1 estimate (10 months) | $12,000 minimum |
+
+### What Both Options Cover
+
+- CVE monitoring and container image rebuilds
+- Incident response and troubleshooting
+- Workflow modifications
 - Quarterly architecture reviews
-- Compliance posture updates as CMMC/NIST evolve
+- Compliance posture updates
 
 ---
 
@@ -375,7 +389,7 @@ MS2 Yellow:             [--PREP--][=======BUILD=======][DEPLOY]
 MS3 Red:                                    [--PREP--][===BUILD===][ACCEPT]
 Game Warden:  [====ONBOARD====]
 Iron Bank:              [=====SUBMIT=====]
-Retainer:                         [=======$750/mo======]
+Retainer:                         [=====Option A or B=====]
 ```
 
 **Critical path:** Game Warden onboarding and Iron Bank submission run in parallel with MS1 to avoid blocking MS2.
@@ -390,7 +404,7 @@ Retainer:                         [=======$750/mo======]
 4. **Months 1-2** — MS1 Black MVP build → March event UAT
 5. **Months 2-4** — MS2 Yellow build → SIPRNet deployment
 6. **Months 4-6** — MS3 Red build → JWICS acceptance
-7. **Month 3+** — Retainer active ($750/mo)
+7. **Month 3+** — Retainer active (Option A or B)
 
 **Deliverable at each gate:** Working system, source code, IaC, documentation, training
 
